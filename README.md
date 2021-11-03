@@ -1,9 +1,6 @@
-# This is Big Heading
-##### This is small Heading
-We should be able to use **bold** or *italic*.
-# Lists
-1. first
-2. second
+# Ohjelmistotekniikka, harjoitustyö
+## Tehtävät
+### Viikko 1
+https://github.com/jova486/ot-harjoitustyo/blob/main/laskarit/viikko1/gitlog.txt
+https://github.com/jova486/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt
 
->Block
->>another Block
