@@ -6,3 +6,4 @@
 [komentorivi.txt](https://github.com/jova486/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt)
 
 Lisätään muutos
+Ja vielä toinenkin
