@@ -5,6 +5,4 @@
 
 [komentorivi.txt](https://github.com/jova486/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt)
 
-Lisätään muutos
-Ja vielä toinenkin
-Ja vielä kolmas
+[vaatimusmaarittely.md](https://github.com/jova486/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
