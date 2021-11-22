@@ -1,0 +1,6 @@
+/laskarit/viikko2/unicafe/src/__pycache__
+/laskarit/viikko2/unicafe/src/tests/__pycache__
+poetry-testi
+wordlistdb.db
+htmlcov
+__pycache__
