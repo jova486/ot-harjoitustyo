@@ -39,11 +39,16 @@ poetry run invoke start
 
 ### Testaus
 
-Testit voi suorittaa komennolla:
+Testit voi suorittaa komennoilla:
 
 ```bash
 poetry run invoke test
 ```
+
+```bash
+poetry run invoke coverage-report
+```
+
 
 
 
