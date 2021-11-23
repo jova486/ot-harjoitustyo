@@ -10,9 +10,6 @@ def start(ctx):
 def test(ctx):
     ctx.run("pytest src")
 
-@task
-def test(ctx):
-    ctx.run("pytest src")
     
 @task
 def initdb(ctx):
