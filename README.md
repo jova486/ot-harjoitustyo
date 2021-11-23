@@ -14,7 +14,7 @@ Sovelluksen toiminta on testattu Python-versioilla 3.6.9 ja 3.8.8
 
 ## Dokumentaatio
 
-[Käyttöohje.md].(https://github.com/jova486/ot-harjoitustyo/blob/main/dokumentaatio/Kayttoohje.md)
+- [Käyttöohje](./dokumentaatio/Kayttoohje.md)
 
 
 ### Asennus
