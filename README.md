@@ -8,7 +8,7 @@ Sovelluksessa luodaan sanalistoja käännöksineen joita voi harjoitella käänt
 
 ## Python-versio
 
-Sovelluksen toiminta on testattu Python-versioilla 3.6.9 ja 3.8.8
+Sovelluksen toiminta on testattu Python-versioilla 3.8.12 ja 3.8.8
 
 
 
