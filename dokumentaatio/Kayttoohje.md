@@ -22,7 +22,7 @@ poetry run invoke start
 ### Kirjautumis näkymä
 
 - Sovellus aukeaa kirjautumisnäkymään jossa kysytään käyttäjätunnusta.
-- Mikäli tunnus tai salasana ei ole sovellus ilmoittaa siitä. 
+- Mikäli tunnus tai salasana ei ole sovellus ilmoittaa siitä.
 - mikäli tunnusta ei ole, sen voi luoda käyttäjätunnuksen-luonti näkymässä klikkaamalla Luo Tunnus.
 
 
@@ -36,8 +36,19 @@ poetry run invoke start
 
 ### Opettajan päänäkymä
 
-- Uudelle sanalistalle annetaan nimi 
+- Uudelle sanalistalle annetaan nimi
 - kirjoitetaan sana kenttään Sana ja sen käännös kenttään Käännös.
-- Nuolinäppäimillä voi liikkua sanalistassa ja tehdä muutoksia (Työn alla. Ei toimiva)
-- Tallenna lisää sanan sanalistaan (Ainoastaan muistiin. Tietokantatallennusta ei vielä ole)
+- Nuolinäppäimillä voi liikkua sanalistassa ja tehdä muutoksia
+- Tallenna lisää sanan sanalistaan
 - Peru painikkeella pääsee takaisin kirjautumisnäkymään.
+- Tallenna lista painikkeella tallennetaan lista tietokantaan
+- Listalla pitää olla uniikki nimi ja se ei saa olla tyhjä
+
+### Oppilaan päänäkymä
+
+- Valitaan harjoitus
+
+### Harjoitusnäkymä
+
+- Harjoituksessa kirjoitetaan sanan käännös ja tarkistetaan
+- kun kaikki sanat on käännetty oikein palataan oppilaan päänäkymään

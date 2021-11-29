@@ -3,7 +3,7 @@
 
 # Sanalista
 
-Sovelluksen avulla voi harjoitella toisen kielen sanastoa. 
+Sovelluksen avulla voi harjoitella toisen kielen sanastoa.
 Sovelluksessa luodaan sanalistoja käännöksineen joita voi harjoitella kääntämään halutulle kielelle.
 
 ## Python-versio
@@ -48,6 +48,19 @@ poetry run invoke test
 ```bash
 poetry run invoke coverage-report
 ```
+
+```bash
+poetry run invoke lint
+```
+
+
+## Tuntikirjanpito
+
+- [Käyttöohje](./dokumentaatio/tuntikirjanpito.md)
+
+## Vaatimusmäärittely
+
+- [Käyttöohje](./dokumentaatio/vaatimusmaarittely.md)
 
 
 

@@ -8,4 +8,10 @@
 | 21.11. | 2    | käyttöliittymän ja rakenteen koodaamista|
 | 22.11. | 4    | koodaamista ja testien suunittelua|
 | 22.11. | 3    | Readme ja Käyttöohje. Sekoilua virtuaaliympäristössä ja git committien kanssa|
+| 26.11. | 2    | käyttöliittymän laajentamista|
+| 27.11. | 2    | käyttöliittymän ja rakenteen koodailua|
+| 28.11. | 2    | käyttöliittymän ja testien koodailua|
+| 29.11. | 3    | Ohjelman testausta ja bugien korjaamista|
+| yht. | 27    | |
+
 

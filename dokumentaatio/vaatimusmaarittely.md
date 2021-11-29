@@ -2,15 +2,15 @@
 
 ## Sovelluksen tarkoitus
 
-Sovelluksen käyttötarkoitus on vieraan kielen sanaston harjoittelu. 
+Sovelluksen käyttötarkoitus on vieraan kielen sanaston harjoittelu.
 Sovelluksen pääkieli on suomi
 Harjoitus tehdään kirjottamalla suomesta käännetty sana halutulla kielellä
 
 ## Käyttäjät
 
-Käyttäjärooleja on kaksi. Opettaja ja oppilas joilla on eri oikeuksia. 
+Käyttäjärooleja on kaksi. Opettaja ja oppilas joilla on eri oikeuksia.
 
-- Opettaja voi luoda harjoituksia jotka koostuvat sanalistoista ja niiden käännöksistä. 
+- Opettaja voi luoda harjoituksia jotka koostuvat sanalistoista ja niiden käännöksistä.
 - oppilas voi valita tehtävän harjoituksen listalta
 
 
@@ -21,15 +21,15 @@ Sovellus koostuu kahdeksasta kymmeneen eri näkymästä
 
 !["Käyttöliittymäluonnos"](kuvat/luonnos.jpg)
 
-### 1 kirjautumis näkymä
+### 1 kirjautumis näkymä Tehty
 
 - Sovellus aukeaa kirjautumisnäkymään jossa kysytään käyttäjätunnusta. Mikäli tunnusta ei ole sen voi luoda.
-- Mikäli tunnus tai salasana ei ole oikein annetaan siitä ilmoitus 
+- Mikäli tunnus tai salasana ei ole oikein annetaan siitä ilmoitus
 - mikäli tunnusta ei ole, sen voi luoda käyttäjätunnuksen-luonti näkymässä
 
 
 
-### 2 käyttäjätunnuksen-luonti näkymä
+### 2 käyttäjätunnuksen-luonti näkymä Tehty
 
 - Annetaan näyttäjänimi ja salasana
 - voidaan valita rooliksi opettaja tai oppilas
@@ -37,9 +37,9 @@ Sovellus koostuu kahdeksasta kymmeneen eri näkymästä
 - käyttäjätunnus ja salasana tallennetaan tietokantaan
 
 
-### 3 Opettajan päänäkymä
+### 3 Opettajan päänäkymä (osa toiminnallisuudesta jätetään pois)
 
-- Opettajan päänäkymässä voi valita joko uuden harjoituksen tai lopetuksen 
+- Opettajan päänäkymässä voi valita joko uuden harjoituksen tai lopetuksen
 - Harjoitukselle annetaan nimi (pakollinen)
 - Harjoitukselle annetaan kuvaus
 - Määritellään harjoituksen kieli (pakollinen)
@@ -48,32 +48,28 @@ Sovellus koostuu kahdeksasta kymmeneen eri näkymästä
 
 
 
-### 4 Uuden harjoituksen luonti näkymä
+### 4 Uuden harjoituksen luonti näkymä (Tehty)
 
 - annetaan uusi sana ja sille käännös
 - nuolinäppäimillä voidaan siirtyä eteen ja taaksepäin
 - harjoitus voidaan tallentaa
 - muutokset voidaan perua ja palata pää näkymään
+- mikäli listalla ei ole nimeä tai nimi on jo käytössä siitä informoidaan
 
-### 5 Muokattavan harjoituksen valinta näkymä
+### 5 Muokattavan harjoituksen valinta näkymä (Ei toteuteta)
 
 - voidaan valita harjoitus nimen ja kielen perusteella vain itse luoduista harjoituksista
 - voidaan perua ja siirtyä takaisin päänäkymään
 - voidaan siirtyä uuden harjoituksen luonti näkymään muokkaamaan olemassa olevaa harjoitusta
 
-### 6 Oppilaan päänäkymä
+### 6 Oppilaan päänäkymä (Tehty)
 
-- Oppilaan päänäkymässä voi valita tehtävän harjoituksin nimen ja kielen perusteella
+- Oppilaan päänäkymässä voi valita tehtävän harjoituksin nimen ja kielen perusteella (Tämä ei ole vielä toteutettu ja voi olla turha valinta)
 - siirrytään harjoitus näkymään
-- lopetus.
+- ellei sanalistoja ole siitä informoidaan
 
-### 7 Oppilaan päänäkymä
 
-- Oppilaan päänäkymässä voi valita tehtävän harjoituksin nimen ja kielen perusteella
-- siirrytään harjoitus näkymään
-- lopetus.
-
-### 8 Harjoitus näkymä
+### 7 Harjoitus näkymä (Tehty)
 
 - Kysytty sana käännetään ja kirjoitetaan
 - tarkistus
@@ -84,8 +80,8 @@ Sovellus koostuu kahdeksasta kymmeneen eri näkymästä
 ## Jatkokehitysideoita
 
 Mikäli aika sallii lisätään toiminnallisuutta:
-- olemassaolevan harjoituksen muokkaus 
-- pidetään kirjaa tuloksista 
+- olemassaolevan harjoituksen muokkaus
+- pidetään kirjaa tuloksista
 - statistiikka näkymä sekä opettajalle että oppilaalle
 
 

@@ -10,7 +10,7 @@ def start(ctx):
 def test(ctx):
     ctx.run("pytest src")
 
-    
+
 @task
 def initdb(ctx):
     ctx.run("python3 src/database/initialize_database.py")
@@ -22,5 +22,9 @@ def coverage(ctx):
 @task(coverage)
 def coverage_report(ctx):
     ctx.run("coverage html")
+
+@task
+def lint(ctx):
+    ctx.run("pylint src")
 
 

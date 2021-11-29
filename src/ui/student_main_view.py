@@ -1,21 +1,18 @@
-from tkinter import ttk, constants
+from tkinter import ttk, constants, StringVar, messagebox
+
+
 class StudentMainView:
-    def __init__(self, root, _to_main_view,sevice):
+    def __init__(self, root, _to_main_view, _to_exercise_view, sevice):
         self._root = root
         self._to_main_view = _to_main_view
         self._frame = None
-        self._frame = None
-        self._listname_entry = None
-        self._word_entry = None
-        self._translate_entry = None
-        self.wordlist = []
-        self._word_list_index = 0
+        self._sevice = sevice
+        self.word_list_cb = None
+        self.language_cb = None
+        self._selected_list = None
+        self._selected_language = None
+        self._to_exercise_view = _to_exercise_view
         self._initialize()
-        self._save()
-        self._back()
-        self._forward()
-        self._sevice= sevice
-       
 
     def pack(self):
         self._frame.pack(fill=constants.X)
@@ -23,96 +20,53 @@ class StudentMainView:
     def destroy(self):
         self._frame.destroy()
 
-    
-    def _save(self):
-        word = self._word_entry.get()
-        translation = self._translate_entry.get()
-        self.wordlist.append(((word,translation)))
-        self._word_entry.delete(0, len(word))
-        self._translate_entry.delete(0, len(translation))
-        self._word_list_index +=1
-        print(self.wordlist)
+    def _open(self):
+        """handle list"""
+        self._sevice.open_active_wordlist(
+            self._selected_list.get(), self._selected_language.get())
+        self._to_exercise_view()
 
-    def _back(self):
-        if self._word_list_index == 0:
-            return
-        else:
-            self._word_list_index -= 1
-            word = self._word_entry.get()
-            translation = self._translate_entry.get()
-            
-            self._word_entry.delete(0, len(word))
-            self._translate_entry.delete(0, len(translation))
-
-            self._word_entry.insert(0,self.wordlist[self._word_list_index][0])
-            self._translate_entry.insert(0,self.wordlist[self._word_list_index][1])
-
-    def _forward(self):
-        if self._word_list_index == len(self.wordlist)-1:
-            return
-        else:
-            self._word_list_index += 1
-            
-            word = self._word_entry.get()
-            translation = self._translate_entry.get()
-            
-            self._word_entry.delete(0, len(word))
-            self._translate_entry.delete(0, len(translation))
-
-            self._word_entry.insert(0,self.wordlist[self._word_list_index][0])
-            self._translate_entry.insert(0,self.wordlist[self._word_list_index][1])
-        
-
+    def _close(self):
+        self._root.destroy()
 
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
-        #label = ttk.Label(master=self._frame, text="Uusi sanalista!")
 
-        listname_label = ttk.Label(master=self._frame, text='Uuden sanalistan nimi')
-        self._listname_entry_entry = ttk.Entry(master=self._frame)
+        self._selected_list = StringVar()
+        self._selected_language = StringVar()
+        lists = self._sevice.get_wordlist_info()
+        names = []
+        languages = []
+        if len(lists) > 0:
+            for row in lists:
+                names.append(row[0])
+                languages.append(row[1])
+            open = ttk.Button(master=self._frame,
+                              text="Avaa", command=self._open)
+        else:
+            names.append("Ei vielä tehtäviä")
+            languages.append("-----")
+            open = ttk.Button(master=self._frame,
+                              text="Lopeta", command=self._close)
 
-        word_label = ttk.Label(master=self._frame, text='Sana')
-        self._word_entry = ttk.Entry(master=self._frame)
+        self.word_list_cb = ttk.Combobox(
+            master=self._frame, textvariable=self._selected_list, state='readonly'
+        )
+        self.word_list_cb["values"] = names
+        self.word_list_cb.current(0)
 
-        translate_label = ttk.Label(master=self._frame, text='Käännös')
-        self._translate_entry = ttk.Entry(master=self._frame)
-        
-        
-        back_arrow = ttk.Button(
-            master=self._frame,
-            text="<=",
-            command=self._back
+        self.language_cb = ttk.Combobox(
+            master=self._frame, textvariable=self._selected_language, state='readonly'
+        )
+        self.language_cb["values"] = languages
+        self.language_cb.current(0)
+
+        self.word_list_cb.grid(
+            row=0, column=0, sticky=(constants.E, constants.W), padx=5, pady=5
+        )
+        self.language_cb.grid(
+            row=1, column=0, sticky=(constants.E, constants.W), padx=5, pady=5
         )
 
-        forward_arrow = ttk.Button(
-            master=self._frame,
-            text="=>",
-            command=self._forward
-        )
-
-        new_list = ttk.Button(
-            master=self._frame,
-            text="Tallenna",
-            command=self._save
-        )
-
-        back = ttk.Button(
-            master=self._frame,
-            text="Peru",
-            command=self._to_main_view
-        )
-
-        listname_label.grid(padx=5, pady=5)
-        self._listname_entry_entry.grid(row=0, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
-
-        word_label.grid(padx=5, pady=5)
-        self._word_entry.grid(row=1, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
-
-        translate_label.grid(padx=5, pady=5)
-        self._translate_entry.grid(row=2, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
-        
-        back_arrow.grid(row=3, column=0, sticky=(constants.E, constants.W), padx=5, pady=5)
-        forward_arrow.grid(row=3, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
-
-        new_list.grid(columnspan=2, sticky=(constants.E, constants.W), padx=5, pady=5)
-        back.grid(columnspan=2, sticky=(constants.E, constants.W), padx=5, pady=5)
+        open.grid(row=2, column=0, sticky=(
+            constants.E, constants.W), padx=5, pady=5)
