@@ -56,11 +56,15 @@ poetry run invoke lint
 
 ## Tuntikirjanpito
 
-- [Käyttöohje](./dokumentaatio/tuntikirjanpito.md)
+- [Tuntikirjanpito](./dokumentaatio/tuntikirjanpito.md)
 
 ## Vaatimusmäärittely
 
-- [Käyttöohje](./dokumentaatio/vaatimusmaarittely.md)
+- [Vaatimusmäärittely](./dokumentaatio/vaatimusmaarittely.md)
+
+## Arkkitehtuurikuvaus
+
+- [Arkkitehtuurikuvaus](./dokumentaatio/arkkitehtuuri.md)
 
 
 
