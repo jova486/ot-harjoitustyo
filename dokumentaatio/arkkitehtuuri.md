@@ -1,1 +1,1 @@
-!["luokka/pakkauskaavio"](kuvat/wordlist luokka_pakkauskaavio.png)
+!["luokka/pakkauskaavio"](kuvat/pakkauskaavio.png)
