@@ -13,7 +13,7 @@ def test(ctx):
 
 @task
 def initdb(ctx):
-    ctx.run("python3 src/database/initialize_database.py")
+    ctx.run("python3 src/initialize_database.py")
 
 @task
 def coverage(ctx):
