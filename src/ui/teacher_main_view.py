@@ -2,9 +2,9 @@ from tkinter import ttk, constants, messagebox
 
 
 class TeacherMainView:
-    def __init__(self, root, _to_main_view, sevice):
+    def __init__(self, root, handle_show_teacher_start_view, sevice):
         self._root = root
-        self._to_main_view = _to_main_view
+        self._to_main_view = handle_show_teacher_start_view
         self._frame = None
         self._frame = None
         self._listname_entry = None
@@ -30,6 +30,7 @@ class TeacherMainView:
         self._word_entry.delete(0, len(word))
         self._translate_entry.delete(0, len(translation))
         self._word_list_index = 0
+        self._sevice.reset_active_wordlist()
         self.wordlist = self._sevice.get_wordlist()
 
     def _save(self):
@@ -94,6 +95,8 @@ class TeacherMainView:
             self._translate_entry.insert(
                 0, self.wordlist[self._word_list_index][1])
 
+
+
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
         listname_label = ttk.Label(
@@ -119,13 +122,14 @@ class TeacherMainView:
             master=self._frame, text="Tallenna lista", command=self._save_list
         )
 
-        back = ttk.Button(master=self._frame, text="Peru",
+        back = ttk.Button(master=self._frame, text="Alkuun",
                           command=self._to_main_view)
 
         listname_label.grid(padx=5, pady=5)
         self._listname_entry_entry.grid(
             row=0, column=1, sticky=(constants.E, constants.W), padx=5, pady=5
         )
+
 
         word_label.grid(padx=5, pady=5)
         self._word_entry.grid(
@@ -151,3 +155,13 @@ class TeacherMainView:
 
         back.grid(columnspan=2, sticky=(
             constants.E, constants.W), padx=5, pady=5)
+
+        if len(self.wordlist)>0:
+            self._word_list_index = 0
+            self._listname_entry_entry.insert(0, self._sevice.get_wordlist_name())
+
+
+            self._word_entry.insert(0, self.wordlist[self._word_list_index][0])
+            self._translate_entry.insert(
+                0, self.wordlist[self._word_list_index][1])
+

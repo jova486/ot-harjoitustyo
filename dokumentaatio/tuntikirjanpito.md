@@ -12,6 +12,8 @@
 | 27.11. | 2    | käyttöliittymän ja rakenteen koodailua|
 | 28.11. | 2    | käyttöliittymän ja testien koodailua|
 | 29.11. | 3    | Ohjelman testausta ja bugien korjaamista|
-| yht. | 27    | |
+| 3.12. | 3    | testikattavuuden parantaminen. sanalistojen muokkaus mahdollisuuden lisäys|
+| 4.12. | 5    | suunittelua ja bugien korjausta. Ensimmäinen sekvenssikaavio. Vaatimusmäärittely ja käyttöohje|
+| yht. | 35    | |
 
 

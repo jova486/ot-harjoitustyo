@@ -4,11 +4,11 @@ from tkinter import ttk, constants, messagebox
 class LoginView:
 
     def __init__(
-        self, root, handle_show_teacher_main_view, handle_show_new_user_view, handle_show_student_main_view, sevice
+        self, root, handle_show_teacher_start_view, handle_show_new_user_view, handle_show_student_main_view, sevice
     ):
 
         self._root = root
-        self.handle_show_teacher_main_vie = handle_show_teacher_main_view
+        self.handle_show_teacher_start_view = handle_show_teacher_start_view
         self.handle_show_new_user_view = handle_show_new_user_view
         self.handle_show_student_main_view = handle_show_student_main_view
         self._frame = None
@@ -31,7 +31,7 @@ class LoginView:
         password = self._password_entry.get()
         if self._sevice.check_user(username, password):
             if self._sevice.get_teacher() == 1:
-                self.handle_show_teacher_main_vie()
+                self.handle_show_teacher_start_view()
             else:
                 self.handle_show_student_main_view()
 

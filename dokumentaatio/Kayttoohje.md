@@ -34,6 +34,12 @@ poetry run invoke start
 - käyttäjätunnus ja salasana tallennetaan tietokantaan
 
 
+### Opettajan aloitusnäkymä
+
+- Uusi sanalista painikkeella pääsee päänäkymään tekemään uuden sanalistan
+- Mahdollisuus valita olemassaolevista listoista muokattavaksi päänäkymään
+- Lopetus
+
 ### Opettajan päänäkymä
 
 - Uudelle sanalistalle annetaan nimi
@@ -43,10 +49,12 @@ poetry run invoke start
 - Peru painikkeella pääsee takaisin kirjautumisnäkymään.
 - Tallenna lista painikkeella tallennetaan lista tietokantaan
 - Listalla pitää olla uniikki nimi ja se ei saa olla tyhjä
+- Paluu opettajan aloitusnäkymään
 
 ### Oppilaan päänäkymä
 
 - Valitaan harjoitus
+- Lopetus
 
 ### Harjoitusnäkymä
 

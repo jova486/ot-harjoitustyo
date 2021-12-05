@@ -36,8 +36,12 @@ Sovellus koostuu kahdeksasta kymmeneen eri näkymästä
 - käyttäjä tunnuksen on oltava uniikki
 - käyttäjätunnus ja salasana tallennetaan tietokantaan
 
+### 3 Opettajan aloitusnäkymä
 
-### 3 Opettajan päänäkymä (osa toiminnallisuudesta jätetään pois)
+- Opettajan aloitusnäkymässä voi valita joko uuden sanalista tai olemassa olevan sanalistan muokkauksen
+
+
+### 4 Opettajan päänäkymä
 
 - Opettajan päänäkymässä voi valita joko uuden harjoituksen tai lopetuksen
 - Harjoitukselle annetaan nimi (pakollinen)
@@ -48,7 +52,7 @@ Sovellus koostuu kahdeksasta kymmeneen eri näkymästä
 
 
 
-### 4 Uuden harjoituksen luonti näkymä (Tehty)
+### 5 Uuden harjoituksen luonti näkymä (Tehty)
 
 - annetaan uusi sana ja sille käännös
 - nuolinäppäimillä voidaan siirtyä eteen ja taaksepäin
@@ -56,20 +60,20 @@ Sovellus koostuu kahdeksasta kymmeneen eri näkymästä
 - muutokset voidaan perua ja palata pää näkymään
 - mikäli listalla ei ole nimeä tai nimi on jo käytössä siitä informoidaan
 
-### 5 Muokattavan harjoituksen valinta näkymä (Ei toteuteta)
+### 6 Muokattavan harjoituksen valinta näkymä (Ei toteuteta)
 
 - voidaan valita harjoitus nimen ja kielen perusteella vain itse luoduista harjoituksista
 - voidaan perua ja siirtyä takaisin päänäkymään
 - voidaan siirtyä uuden harjoituksen luonti näkymään muokkaamaan olemassa olevaa harjoitusta
 
-### 6 Oppilaan päänäkymä (Tehty)
+### 7 Oppilaan päänäkymä (Tehty)
 
 - Oppilaan päänäkymässä voi valita tehtävän harjoituksin nimen ja kielen perusteella (Tämä ei ole vielä toteutettu ja voi olla turha valinta)
 - siirrytään harjoitus näkymään
 - ellei sanalistoja ole siitä informoidaan
 
 
-### 7 Harjoitus näkymä (Tehty)
+### 8 Harjoitus näkymä (Tehty)
 
 - Kysytty sana käännetään ja kirjoitetaan
 - tarkistus

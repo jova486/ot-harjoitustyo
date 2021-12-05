@@ -9,7 +9,7 @@ class ExerciseView:
         self._frame = None
         self._word_label = None
         self._translate_entry = None
-        self.wordlist = sevice.get_active_wordlist()
+        self.wordlist = sevice.get_wordlist()
         self._word_list_index = 0
         self._sevice = sevice
         self._initialize()

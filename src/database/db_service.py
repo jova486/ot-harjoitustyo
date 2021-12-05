@@ -69,6 +69,23 @@ class DbServise:
             else:
                 return False
 
+    def edit_word_list(self, name, language, creator, list):
+        cursor = self._conn.cursor()
+        data = ""
+        for i in list:
+            data += i[0]+","+i[1]+"\n"
+        if len(data) > 0:
+
+            cursor.execute('UPDATE lists SET data = "%s" where NAME="%s"' %(data, name))
+            self._conn.commit()
+
+            return True
+        else:
+
+            return False
+
+
+
     def get_word_list(self, name, language):
         cursor = self._conn.cursor()
 
