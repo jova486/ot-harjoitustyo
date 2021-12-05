@@ -4,4 +4,4 @@ poetry-testi
 wordlistdb.db
 htmlcov
 __pycache__
-.vscode
+.vscode/
