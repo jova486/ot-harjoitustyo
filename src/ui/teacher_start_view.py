@@ -34,7 +34,7 @@ class TeacherStartView:
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
         new = ttk.Button(master=self._frame,
-                              text="Uusi lista", command=self._new)
+                         text="Uusi lista", command=self._new)
         self._selected_list = StringVar()
         self._selected_language = StringVar()
         lists = self._sevice.get_wordlist_info()
@@ -47,18 +47,18 @@ class TeacherStartView:
             open = ttk.Button(master=self._frame,
                               text="Muokkaa", command=self._open)
             open.grid(row=3, column=0, sticky=(
-            constants.E, constants.W), padx=5, pady=5)
+                constants.E, constants.W), padx=5, pady=5)
             close = ttk.Button(master=self._frame,
-                              text="Lopeta", command=self._close)
+                               text="Lopeta", command=self._close)
             close.grid(row=4, column=0, sticky=(
-            constants.E, constants.W), padx=5, pady=5)
+                constants.E, constants.W), padx=5, pady=5)
         else:
             names.append("Ei vielä tehtäviä")
             languages.append("-----")
             close = ttk.Button(master=self._frame,
-                              text="Lopeta", command=self._close)
+                               text="Lopeta", command=self._close)
             close.grid(row=3, column=0, sticky=(
-            constants.E, constants.W), padx=5, pady=5)
+                constants.E, constants.W), padx=5, pady=5)
 
         self.word_list_cb = ttk.Combobox(
             master=self._frame, textvariable=self._selected_list, state='readonly'
@@ -81,5 +81,3 @@ class TeacherStartView:
         self.language_cb.grid(
             row=2, column=0, sticky=(constants.E, constants.W), padx=5, pady=5
         )
-
-

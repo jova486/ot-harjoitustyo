@@ -44,18 +44,18 @@ class StudentMainView:
             open = ttk.Button(master=self._frame,
                               text="Avaa", command=self._open)
             open.grid(row=2, column=0, sticky=(
-            constants.E, constants.W), padx=5, pady=5)
+                constants.E, constants.W), padx=5, pady=5)
             close = ttk.Button(master=self._frame,
-                              text="Lopeta", command=self._close)
+                               text="Lopeta", command=self._close)
             close.grid(row=3, column=0, sticky=(
-            constants.E, constants.W), padx=5, pady=5)
+                constants.E, constants.W), padx=5, pady=5)
         else:
             names.append("Ei vielä tehtäviä")
             languages.append("-----")
             close = ttk.Button(master=self._frame,
-                              text="Lopeta", command=self._close)
+                               text="Lopeta", command=self._close)
             close.grid(row=3, column=0, sticky=(
-            constants.E, constants.W), padx=5, pady=5)
+                constants.E, constants.W), padx=5, pady=5)
 
         self.word_list_cb = ttk.Combobox(
             master=self._frame, textvariable=self._selected_list, state='readonly'
@@ -75,5 +75,3 @@ class StudentMainView:
         self.language_cb.grid(
             row=1, column=0, sticky=(constants.E, constants.W), padx=5, pady=5
         )
-
-

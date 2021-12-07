@@ -35,38 +35,10 @@ class TestServise(unittest.TestCase):
         self.assertTrue(wls.add_user(self.user_Joppe.username,
                                      self.user_Joppe.password, self.user_Joppe.teacher))
 
-        self.assertEqual(wls.get_teacher(),1)
+        self.assertEqual(wls.get_teacher(), 1)
 
     def test_check_get_teacher2(self):
         self.assertTrue(wls.add_user(self.user_Joppe.username,
                                      self.user_Joppe.password, self.user_Joppe.teacher))
 
-        self.assertNotEqual(wls.get_teacher(),0)
-
-
-
-
-
-
-    '''def get_teacher(self):
-
-        return self.user.teacher
-
-    def get_wordlist(self):
-
-        return self.active_wordlist
-
-    def get_wordlist_name(self):
-
-        return self.active_wordlist_name
-
-    def reset_active_wordlist(self):
-        self.active_wordlist = []
-        self.edit = False
-        self.active_wordlist_name=" "
-
-    def open_active_wordlist(self, name, language):
-
-        self.active_wordlist = dbs.get_word_list(name, language)
-        self.edit = True
-        self.active_wordlist_name=name'''
+        self.assertNotEqual(wls.get_teacher(), 0)

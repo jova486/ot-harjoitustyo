@@ -67,5 +67,10 @@ poetry run invoke lint
 - [Arkkitehtuurikuvaus](./dokumentaatio/arkkitehtuuri.md)
 
 
+## Release
+
+- [Release](https://github.com/jova486/ot-harjoitustyo/releases/tag/viikko5_1)
+
+
 
 

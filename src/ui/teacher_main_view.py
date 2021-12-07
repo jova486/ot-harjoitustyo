@@ -95,8 +95,6 @@ class TeacherMainView:
             self._translate_entry.insert(
                 0, self.wordlist[self._word_list_index][1])
 
-
-
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
         listname_label = ttk.Label(
@@ -130,7 +128,6 @@ class TeacherMainView:
             row=0, column=1, sticky=(constants.E, constants.W), padx=5, pady=5
         )
 
-
         word_label.grid(padx=5, pady=5)
         self._word_entry.grid(
             row=1, column=1, sticky=(constants.E, constants.W), padx=5, pady=5
@@ -156,12 +153,11 @@ class TeacherMainView:
         back.grid(columnspan=2, sticky=(
             constants.E, constants.W), padx=5, pady=5)
 
-        if len(self.wordlist)>0:
+        if len(self.wordlist) > 0:
             self._word_list_index = 0
-            self._listname_entry_entry.insert(0, self._sevice.get_wordlist_name())
-
+            self._listname_entry_entry.insert(
+                0, self._sevice.get_wordlist_name())
 
             self._word_entry.insert(0, self.wordlist[self._word_list_index][0])
             self._translate_entry.insert(
                 0, self.wordlist[self._word_list_index][1])
-

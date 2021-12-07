@@ -51,7 +51,6 @@ class UI:
 
         self._current_view.pack()
 
-
     def _show_teacher_main_view(self):
         self._hide_current_view()
 

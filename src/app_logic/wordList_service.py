@@ -3,7 +3,6 @@ from entity.user import User
 from database.db_service import db_servise as dbs
 
 
-
 class word_list_Service:
     """Sovelluslogiikasta vastaa luokka."""
 
@@ -15,7 +14,6 @@ class word_list_Service:
         self.active_wordlist = []
         self.edit = False
         self.active_wordlist_name = ""
-
 
     def check_user(self, username, password):
         row = self.dbs.check_user(username, password)
@@ -48,14 +46,13 @@ class word_list_Service:
     def reset_active_wordlist(self):
         self.active_wordlist = []
         self.edit = False
-        self.active_wordlist_name=" "
+        self.active_wordlist_name = " "
 
     def open_active_wordlist(self, name, language):
 
         self.active_wordlist = dbs.get_word_list(name, language)
         self.edit = True
-        self.active_wordlist_name=name
-
+        self.active_wordlist_name = name
 
     def save_to_wordlist(self, word, translation, index):
 
