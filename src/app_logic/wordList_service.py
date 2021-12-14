@@ -3,10 +3,23 @@ from entity.user import User
 from database.db_service import db_servise as dbs
 
 
-class word_list_Service:
-    """Sovelluslogiikasta vastaa luokka."""
+class WordListService:
+    """Sovelluslogiikasta vastaava luokka.
+
+    """
 
     def __init__(self):
+        """Luokan konstruktori.
+
+        Attributes:
+            user: Käyttäjän tiedot
+            dbs: Tietokantaluokka
+            wordlist_info: Tallentaa aktiivisen sanalistan tiedot
+            active_wordlist: Nykyinen sanalista
+            edit: Onko sanalista editoitavana vai uusi
+            active_wordlist_name: Nykyinen sanalistan nimi
+            active_wordlist_language: Nykyinen sanalistan kieli
+        """
         self.user = None
         self.dbs = dbs
         self.wordlist_info = None
@@ -17,30 +30,58 @@ class word_list_Service:
         self.active_wordlist_language = ""
 
     def check_user(self, username, password):
+        """Kysyy tietokantaluokalta täsmääkö käyttäjänimi ja salasana. Mikäli täsmää asetetaan nykyisen käyttäjän tiedot
+
+        Args:
+            username: Käyttäjänimi
+            password: Salasana
+
+
+        Returns: True mikäli täsmää muuten False
+        """
         row = self.dbs.check_user(username, password)
         if row:
             self.user = User(row[0], row[1], row[2])
             return True
-        else:
-            return False
+        return False
 
     def add_user(self, username, password, is_teacher):
+        """Luo uuden käyttäjän. Mikäli uuden käyttäjän luominen onnistuu asetetaan nykyisen käyttäjän tiedot
+
+        Args:
+            username: Käyttäjänimi
+            password: Salasana
+            is_teacher: Käyttäjärooli 1 = opettaja 0 = oppilas
+
+
+        Returns: True mikäli uuden käyttäjän luominen onnistuu muuten False
+        """
 
         if self.dbs.add_user(username, password, is_teacher):
             self.user = User(username, password, is_teacher)
             return True
-        else:
-            return False
+        return False
 
     def get_teacher(self):
+        """Palautetaan nykyisen käyttäjän käyttäjärooli.
 
+        Returns: 1 = opettaja 0 = oppilas
+        """
         return self.user.teacher
 
     def get_wordlist(self):
+        """Palautetaan aktiivinen sanalista.
+
+        Returns: aktiivinen sanalista (active_wordlist)
+        """
 
         return self.active_wordlist
 
     def get_word_translations_list(self):
+        """Palautetaan aktiivisen sanalistan käännökset listana.
+
+        Returns: lista käännöksistä
+        """
         list = []
         for i in self.active_wordlist:
             list.append(i[1])
@@ -48,15 +89,27 @@ class word_list_Service:
         return list
 
     def get_wordlist_name(self):
+        """Palautetaan aktiivisen sanalistan nimi.
+
+        Returns: aktiivisen sanalistan nimi
+        """
 
         return self.active_wordlist_name
 
     def get_wordlist_info(self):
+        """Hakee tietokannassa olevien sanalistojen nimet ja kielet.
+
+        Returns: Listan tupleja joissa nimet ja kielet
+        """
 
         self.wordlist_info = self.dbs.get_word_lists_info()
         return self.wordlist_info
 
     def get_wordlists_names(self):
+        """Hakee tietokannassa olevien sanalistojen nimet.
+
+        Returns: Sanalistojen nimet tai tyhjä lista
+        """
 
         return self.dbs.get_word_lists_names()
 
@@ -65,6 +118,10 @@ class word_list_Service:
         return self.dbs.get_wordlists_by_language(language)
 
     def get_wordlist_language(self):
+        """Palautetaan aktiivisen sanalistan kieli.
+
+        Returns: aktiivisen sanalistan kieli
+        """
         return self.active_wordlist_language
 
     def reset_active_wordlist(self):
@@ -97,16 +154,14 @@ class word_list_Service:
             if self.dbs.check_word_list_name(name):
                 return self.dbs.edit_word_list(name, language, creator, self.active_wordlist)
 
-            else:
-                return self.dbs.add_word_list(name, language, creator, self.active_wordlist)
-        else:
             return self.dbs.add_word_list(name, language, creator, self.active_wordlist)
+
+        return self.dbs.add_word_list(name, language, creator, self.active_wordlist)
 
     def check_word_list_name(self, name):
         if self.edit:
             return False
-        else:
-            return self.dbs.check_word_list_name(name)
+        return self.dbs.check_word_list_name(name)
 
     def save_statistics(self, value):
 
@@ -118,4 +173,4 @@ class word_list_Service:
         return self.dbs.get_statistics(self.user.username, self.get_wordlist_name())
 
 
-word_list_Service = word_list_Service()
+word_list_Service = WordListService()

@@ -15,6 +15,9 @@
 | 3.12. | 3    | testikattavuuden parantaminen. sanalistojen muokkaus mahdollisuuden lisäys|
 | 4.12. | 5    | suunittelua ja bugien korjausta. Ensimmäinen sekvenssikaavio. Vaatimusmäärittely ja käyttöohje|
 | 7.12. | 1    | bugien korjausta. Release versio|
-| yht. | 36    | |
+| 9.12. | 3    | Ominaisuuksien lisäämistä|
+| 13.12. | 4    | bugien korjausta. Testien koodausta|
+| 14.12. | 6    | bugien korjausta. Koodin laadun parantamista. Dokumentointia. Sekvenssikaavioita|
+| yht. | 49    | |
 
 

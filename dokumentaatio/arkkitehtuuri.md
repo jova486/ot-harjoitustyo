@@ -33,8 +33,15 @@ Kuvataan seuraavaksi sovelluksen toimintalogiikkaa sekvenssikaavioiden avulla.
 
 # Käyttäjän lisääminen
 
+Käyttäjätunnuksen luonti näkymässä annetaan käyttäjänimi ja salasana. Valintaruudusta voidaan valita rooliksi opettaja tai mikäli ei valita rooli on oppilas. Luokalle WordListServise lähetetään kysely onko käyttäjätunnus vapaa. WordListServise välittää pyynnön tietokannalle. Mikäli käyttäjänimi on vapaa tallennetaan käyttäjätiedot tietokantaan ja näytetään roolin mukainen alkunäkymä.
+
 !["sekvenssikaavio AddNewUser"](kuvat/AddNewUser.png)
 
+Kirjautuminen näkymässä annetaan käyttäjätunnus ja salasana. WordListServise luokka välittää ne tietokantaluokalle joka tarkistaa täsmäävätkö ne. Mikäli eivät annetaan virheilmoitus. Onnistumisen kirjautumisen jälkeen näytetään roolin mukainen alkunäkymä.
+
 !["sekvenssikaavio Login"](kuvat/Login(Teacher).png)
+
+!["sekvenssikaavio TeacherMainView"](kuvat/TeacherMainView.png)
+
 
 
