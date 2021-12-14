@@ -36,12 +36,12 @@ Sovellus koostuu kahdeksasta kymmeneen eri näkymästä
 - käyttäjä tunnuksen on oltava uniikki
 - käyttäjätunnus ja salasana tallennetaan tietokantaan
 
-### 3 Opettajan aloitusnäkymä
+### 3 Opettajan aloitusnäkymä (tehty)
 
 - Opettajan aloitusnäkymässä voi valita joko uuden sanalista tai olemassa olevan sanalistan muokkauksen
 
 
-### 4 Opettajan päänäkymä
+### 4 Opettajan päänäkymä (tehty)
 
 - Opettajan päänäkymässä voi valita joko uuden harjoituksen tai lopetuksen
 - Harjoitukselle annetaan nimi (pakollinen)
@@ -60,7 +60,7 @@ Sovellus koostuu kahdeksasta kymmeneen eri näkymästä
 - muutokset voidaan perua ja palata pää näkymään
 - mikäli listalla ei ole nimeä tai nimi on jo käytössä siitä informoidaan
 
-### 6 Muokattavan harjoituksen valinta näkymä (Ei toteuteta)
+### 6 Muokattavan harjoituksen valinta näkymä (tehty)
 
 - voidaan valita harjoitus nimen ja kielen perusteella vain itse luoduista harjoituksista
 - voidaan perua ja siirtyä takaisin päänäkymään
@@ -79,6 +79,7 @@ Sovellus koostuu kahdeksasta kymmeneen eri näkymästä
 - tarkistus
 - palaute sen mukaan onko oikein vai
 - lopetus.
+- lisätty graafi josta näkyy kyseisen harjoituksen ensimmäisellä yrityksellä onnistumisprosentti
 
 
 ## Jatkokehitysideoita

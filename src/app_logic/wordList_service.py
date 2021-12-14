@@ -14,6 +14,7 @@ class word_list_Service:
         self.active_wordlist = []
         self.edit = False
         self.active_wordlist_name = ""
+        self.active_wordlist_language = ""
 
     def check_user(self, username, password):
         row = self.dbs.check_user(username, password)
@@ -39,20 +40,45 @@ class word_list_Service:
 
         return self.active_wordlist
 
+    def get_word_translations_list(self):
+        list = []
+        for i in self.active_wordlist:
+            list.append(i[1])
+
+        return list
+
     def get_wordlist_name(self):
 
         return self.active_wordlist_name
+
+    def get_wordlist_info(self):
+
+        self.wordlist_info = self.dbs.get_word_lists_info()
+        return self.wordlist_info
+
+    def get_wordlists_names(self):
+
+        return self.dbs.get_word_lists_names()
+
+    def get_wordlists_by_language(self, language):
+
+        return self.dbs.get_wordlists_by_language(language)
+
+    def get_wordlist_language(self):
+        return self.active_wordlist_language
 
     def reset_active_wordlist(self):
         self.active_wordlist = []
         self.edit = False
         self.active_wordlist_name = " "
+        self.active_wordlist_language = " "
 
     def open_active_wordlist(self, name, language):
-
+        self.reset_active_wordlist()
         self.active_wordlist = dbs.get_word_list(name, language)
         self.edit = True
         self.active_wordlist_name = name
+        self.active_wordlist_language = language
 
     def save_to_wordlist(self, word, translation, index):
 
@@ -62,28 +88,34 @@ class word_list_Service:
         else:
             self.active_wordlist[index] = (word, translation)
 
-    def save_wordlist(self, name):
-        language = "Englanti"
+    def save_wordlist(self, name, language):
+        name = name.capitalize()
+        language = language.capitalize()
+
         creator = self.user.username
         if self.edit == True:
-            if dbs.check_word_list_name(name):
-                return dbs.edit_word_list(name, language, creator, self.active_wordlist)
+            if self.dbs.check_word_list_name(name):
+                return self.dbs.edit_word_list(name, language, creator, self.active_wordlist)
 
             else:
-                return dbs.add_word_list(name, language, creator, self.active_wordlist)
+                return self.dbs.add_word_list(name, language, creator, self.active_wordlist)
         else:
-            return dbs.add_word_list(name, language, creator, self.active_wordlist)
-
-    def get_wordlist_info(self):
-
-        self.wordlist_info = dbs.get_word_list_names()
-        return self.wordlist_info
+            return self.dbs.add_word_list(name, language, creator, self.active_wordlist)
 
     def check_word_list_name(self, name):
         if self.edit:
             return False
         else:
-            return dbs.check_word_list_name(name)
+            return self.dbs.check_word_list_name(name)
+
+    def save_statistics(self, value):
+
+        self.dbs.save_statistics(
+            self.user.username, self.get_wordlist_name(), value)
+
+    def get_statistics(self):
+
+        return self.dbs.get_statistics(self.user.username, self.get_wordlist_name())
 
 
 word_list_Service = word_list_Service()

@@ -15,7 +15,6 @@ class NewUserView:
         self.handle_show_teacher_main_view = handle_show_teacher_main_view
         self.handle_show_student_main_view = handle_show_student_main_view
         self._frame = None
-        self._frame = None
         self._username_entry = None
         self._password_entry = None
         self._is_teacher = None

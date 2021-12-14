@@ -1,34 +1,59 @@
 from tkinter import Text, ttk, constants, messagebox
+from matplotlib.figure import Figure
+from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg)
 
 
 class ExerciseView:
     def __init__(self, root, _to_main_view, sevice):
         self._root = root
         self._to_main_view = _to_main_view
+        self._sevice = sevice
         self._frame = None
         self._frame = None
         self._word_label = None
         self._translate_entry = None
         self.wordlist = sevice.get_wordlist()
+        self.wordlist_stat = dict(
+            (w, 0) for w in self._sevice.get_word_translations_list())
         self._word_list_index = 0
-        self._sevice = sevice
+        self.fig = Figure(figsize=(5, 5), dpi=100)
+        self.canvas = FigureCanvasTkAgg(self.fig, master=self._root)
+
         self._initialize()
 
     def pack(self):
         self._frame.pack(fill=constants.X)
 
     def destroy(self):
+        self.canvas.get_tk_widget().destroy()
         self._frame.destroy()
+
+    def plot(self):
+
+        stat = self._sevice.get_statistics()
+        keys = stat.keys()
+        values = stat.values()
+        plot1 = self.fig.add_subplot(111)
+        width = .5
+        plot1.bar(keys, values, width)
+        self.canvas.draw()
+        self.canvas.get_tk_widget().pack()
 
     def _check(self):
         word = self._translate_entry.get()
         if word == self.wordlist[self._word_list_index][1]:
+            self.wordlist_stat[word] += 1
             messagebox.showinfo(
                 title="Oikein!", message=self.wordlist[self._word_list_index][0] + " = " + word)
             if self._word_list_index >= len(self.wordlist) - 1:
+                wright = sum(
+                    value == 1 for value in self.wordlist_stat.values())
+                self._sevice.save_statistics(wright/len(self.wordlist_stat))
 
                 messagebox.showinfo(title="Selvisit loppuun!",
                                     message="Hienoa! "+"Kaikki oikein!")
+                self.plot()
+
             else:
                 self._word_list_index += 1
                 self._word_label.config(
@@ -36,9 +61,11 @@ class ExerciseView:
                 self._translate_entry.delete(0, len(word))
                 self._translate_entry.insert(0, "")
         else:
+            self.wordlist_stat[self.wordlist[self._word_list_index][1]] += 1
             messagebox.showerror(title="Väärin!", message="yritä uudelleen")
 
     def _initialize(self):
+        self._word_list_index = 0
         self._frame = ttk.Frame(master=self._root)
 
         self._translate_entry = ttk.Entry(master=self._frame)

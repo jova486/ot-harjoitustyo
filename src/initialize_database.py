@@ -8,10 +8,12 @@ def drop_tables(connection):
         drop table if exists users;
     ''')
 
-    connection.commit()
-
     cursor.execute('''
         drop table if exists lists;
+    ''')
+
+    cursor.execute('''
+        drop table if exists stat;
     ''')
 
     connection.commit()
@@ -34,6 +36,16 @@ def create_tables(connection):
             language text,
             creator text,
             data VARCHAR
+
+        );
+    ''')
+
+    cursor.execute('''
+        create table stat (
+            user text,
+            name text,
+            date timestamp,
+            value real
 
         );
     ''')

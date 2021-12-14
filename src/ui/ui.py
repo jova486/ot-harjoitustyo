@@ -31,7 +31,8 @@ class UI:
         self._hide_current_view()
 
         self._current_view = LoginView(
-            self._root, self._show_teacher_start_view, self._show_new_user_view, self._show_student_main_view, self._service)
+            self._root, self._show_teacher_start_view, self._show_new_user_view,
+            self._show_student_main_view, self._service)
 
         self._current_view.pack()
 

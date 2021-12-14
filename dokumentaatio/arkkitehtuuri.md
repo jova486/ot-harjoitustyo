@@ -1,2 +1,40 @@
+## Arkkitehtuurikuvaus
+
+# Rakenne
+
+Ohjelman rakenne noudattelee kolmitasoista kerrosarkkitehtuuria, ja koodin pakkausrakenne on seuraava:
+
+
+Pakkaus ui sisältää käyttöliittymästä, app_logic sovelluslogiikasta ja database tietokantatallennuksesta vastaavan koodin. Pakkaus entity sisältää ainoastaan luokan user joka kuvaa käyttäjän tietoja.
+
+
 !["luokka/pakkauskaavio"](kuvat/pakkauskaavio.png)
+
+# Käyttöliittymä
+
+Käyttöliittymä sisältää kuusi erillistä näkymää:
+
+- Kirjautuminen
+- Uuden käyttäjän luominen
+- Opettajan aloitusnäkymä
+- Opettajan päänäkymä
+- Oppilaan aloitusnäkymä
+- Harjoitusnäkymä
+
+Nämä ovat toteutettu omina luokkinaan. Näkymien näyttämisestä vastaa UI-luokka ja ne ovat näkyvissä yksittäin. Käyttöliittymä on mahdollisuukien mukaan pyritty eristämään sovelluslogiikasta. Näkymä luokat vastaavat kommunikoinnista käyttäjän kanssa ja kutsuvat word_list_Service luokkaa joka vastaa toiminnallisuudesta sanalistojen ja käyttäjän tietojen osalta.
+
+# Sovelluslogiikka
+
+Sovelluksen tietojen tallennuksesta vastaa luokka DbServise. Käyttöliittymän ja DbServisen tiedonvaihdosta vastaa luokka word_list_Service. Luokka word_list_Service tallentaa käyttöliittymän tarvitsemia tietoja esim muuttujiin: user, wordlist_info, active_wordlist, edit, active_wordlist_name ja active_wordlist_language. Näiden muuttujien arvot päivitetään tarvittaessa. Muutoin luokan tehtävänä on välittää käyttöliittymän tarvitsemat kyselyt DbServise luokalle ja välittää tulokset takaisin käyttöliittymälle.
+
+# Päätoiminnallisuudet
+
+Kuvataan seuraavaksi sovelluksen toimintalogiikkaa sekvenssikaavioiden avulla.
+
+# Käyttäjän lisääminen
+
 !["sekvenssikaavio AddNewUser"](kuvat/AddNewUser.png)
+
+!["sekvenssikaavio Login"](kuvat/Login(Teacher).png)
+
+

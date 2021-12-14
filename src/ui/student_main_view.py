@@ -5,13 +5,13 @@ class StudentMainView:
     def __init__(self, root, _to_main_view, _to_exercise_view, sevice):
         self._root = root
         self._to_main_view = _to_main_view
+        self._to_exercise_view = _to_exercise_view
         self._frame = None
         self._sevice = sevice
         self.word_list_cb = None
         self.language_cb = None
         self._selected_list = None
         self._selected_language = None
-        self._to_exercise_view = _to_exercise_view
         self._initialize()
 
     def pack(self):
@@ -26,6 +26,19 @@ class StudentMainView:
             self._selected_list.get(), self._selected_language.get())
         self._to_exercise_view()
 
+    def _update_selected_list(self, language):
+        if language == "Kaikki kielet":
+            self.word_list_cb["values"] = self._sevice.get_wordlists_names()
+            self.word_list_cb.current(0)
+
+        else:
+            self.word_list_cb["values"] = self._sevice.get_wordlists_by_language(
+                language)
+            self.word_list_cb.current(0)
+
+    def _language_cb_modified(self, event):
+        self._update_selected_list(self._selected_language.get())
+
     def _close(self):
         self._root.destroy()
 
@@ -38,9 +51,11 @@ class StudentMainView:
         names = []
         languages = []
         if len(lists) > 0:
+            languages.append("Kaikki kielet")
             for row in lists:
                 names.append(row[0])
-                languages.append(row[1])
+                if row[1] not in languages:
+                    languages.append(row[1])
             open = ttk.Button(master=self._frame,
                               text="Avaa", command=self._open)
             open.grid(row=2, column=0, sticky=(
@@ -68,6 +83,8 @@ class StudentMainView:
         )
         self.language_cb["values"] = languages
         self.language_cb.current(0)
+        self.language_cb.bind('<<ComboboxSelected>>',
+                              self._language_cb_modified)
 
         self.word_list_cb.grid(
             row=0, column=0, sticky=(constants.E, constants.W), padx=5, pady=5
