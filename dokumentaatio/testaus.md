@@ -1,6 +1,6 @@
 # Testausdokumentti
 
-Ohjelmaa on testattu unittestin yksikkötesteillä ja manuaalisesti [Käyttöohje](./dokumentaatio/Kayttoohje.md) kuvaamalla tavalla sekä Linux-ympäristössä.
+Ohjelmaa on testattu unittestin yksikkötesteillä ja manuaalisesti [Käyttöohje](Kayttoohje.md) kuvaamalla tavalla sekä Linux-ympäristössä.
 
 
 ### Sovelluslogiikka
@@ -23,7 +23,7 @@ Sovelluksen järjestelmätestaus on suoritettu manuaalisesti.
 
 ### Asennus
 
-Sovellus on haettu ja sitä on testattu [Käyttöohje](./dokumentaatio/Kayttoohje.md) kuvaamalla Linux-ympäristössä.
+Sovellus on haettu ja sitä on testattu [Käyttöohje](Kayttoohje.md) kuvaamalla Linux-ympäristössä.
 Sitä on myös testattu virtuaalityöasemassa.
 
 ### Toiminnallisuudet
