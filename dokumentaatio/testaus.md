@@ -1,32 +1,31 @@
 # Testausdokumentti
 
-Ohjelmaa on testattu unittestin yksikkötesteillä ja manuaalisesti [Käyttöohje](Kayttoohje.md) kuvaamalla tavalla sekä Linux-ympäristössä.
+Ohjelmaa on testattu unittestin yksikkötesteillä ja manuaalisesti [Käyttöohjeen](Kayttoohje.md) kuvaamalla tavalla.
 
 
-### Sovelluslogiikka
+# Sovelluslogiikka
 
 Sovelluslogiikasta vastaavaa `WordListService`-luokkaa testataan `TestServise` luokan metodeilla. `TestServise`-luokan metodissa setUp tyhjennetään tietokanta wordlistdb siten että tietokantahaut ja testit tehdään tyhjälle tietokannalle.
-### Tietokanta-luokka
+# Tietokanta-luokka
 
 Tietokantaluokkaa `DbServise` testataan luokan `TestDbServise` luokan metodeilla. `TestDbServise`-luokan metodissa setUp tyhjennetään tietokanta wordlistdb siten että  tietokantahaut ja testit tehdään tyhjälle tietokannalle.
 
-### Testauskattavuus
+# Testauskattavuus
 
 Käyttöliittymäkerrosta lukuunottamatta sovelluksen testauksen haarautumakattavuus on 96%
 
 ![](./kuvat/testikattavuus.png)
 
 
-## Järjestelmätestaus
+# Järjestelmätestaus
 
 Sovelluksen järjestelmätestaus on suoritettu manuaalisesti.
 
-### Asennus
+# Asennus ja konfigurointi
 
-Sovellus on haettu ja sitä on testattu [Käyttöohje](Kayttoohje.md) kuvaamalla Linux-ympäristössä.
-Sitä on myös testattu virtuaalityöasemassa.
+Sovelluksen release-versio on asennettu ja sitä on testattu [Käyttöohjeen](Kayttoohje.md) kuvaamalla tavalla Linux-ympäristössä kannettavalla tietokoneella ja virtuaalityöasemassa.
 
-### Toiminnallisuudet
+# Toiminnallisuudet
 
 Sovelluksessa on pyritty välttämään kaikki tilanteet joissa virheellinen syöte voisi aiheuttaa ongelman. Tällä hetkellä ei ole tiedossa että näin voisi käydä. Ongelma syntyy kuitenkin silloin kun sovellus käynnistetään ennen tietokannan alustamista.
 
