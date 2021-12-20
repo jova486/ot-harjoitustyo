@@ -137,7 +137,7 @@ class DbServise:
             return True
         return False
 
-    def get_word_list(self, name, language):
+    def get_word_list(self, name):
         """Hakee sanalistan nimen mukaan.
 
         Args:
@@ -161,6 +161,23 @@ class DbServise:
                     wlist.append((words[0], words[1]))
 
         return wlist
+
+    def get_word_list_language(self, name):
+        """Hakee sanalistan kielen nimen perusteella.
+
+        Args:
+            name: Sanalistan nimi
+
+
+        Returns: Paluttaa sanalistan kielen.
+        """
+
+
+        cursor = self._conn.execute(
+            'SELECT language from lists where NAME="%s"' % (name))
+        language = cursor.fetchone()
+
+        return language[0]
 
     def get_word_lists_info(self):
         """Hakee tietokannassa olevien sanalistojen nimet ja kielet.

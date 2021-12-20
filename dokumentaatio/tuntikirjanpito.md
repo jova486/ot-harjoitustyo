@@ -17,7 +17,11 @@
 | 7.12. | 1    | bugien korjausta. Release versio|
 | 9.12. | 3    | Ominaisuuksien lisäämistä|
 | 13.12. | 4    | bugien korjausta. Testien koodausta|
-| 14.12. | 6    | bugien korjausta. Koodin laadun parantamista. Dokumentointia. Sekvenssikaavioita|
-| yht. | 49    | |
+| 14.12. | 6    | bugien korjausta. Koodin laadun parantamista.
+| 16.12. | 2    | testikattavuuden parantaminen|
+| 17.12. | 3    | ominaisuuksien lisäämistä, pylint |
+| 19.12. | 4    | bugien korjausta, testien koodausta, dokumentointia|
+| 20.12. | 5    | bugien korjausta. dokumentointia (Käyttöohje, arkkitehtuuri vaatimusmäärittely) Sekvenssikaavioita|
+| yht. | 63    | |
 
 

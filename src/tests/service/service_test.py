@@ -115,7 +115,7 @@ class TestServise(unittest.TestCase):
         """
         self.setUpWordLists()
 
-        wls.open_active_wordlist("Test2", "Espanja")
+        wls.open_active_wordlist("Test2")
         self.assertEqual(wls.get_wordlist_name(), "Test2")
 
     def test_get_wordlist(self):
@@ -127,7 +127,7 @@ class TestServise(unittest.TestCase):
         """
         self.setUpWordLists()
 
-        wls.open_active_wordlist("Test2", "Espanja")
+        wls.open_active_wordlist("Test2")
         self.assertEqual(wls.get_wordlist(), [("kolme", "tres"), ("neljä", "cuatro")])
 
 
@@ -152,7 +152,7 @@ class TestServise(unittest.TestCase):
     def test_get_word_translations_list(self):
 
         self.setUpWordLists()
-        wls.open_active_wordlist("Test1", "Englanti")
+        wls.open_active_wordlist("Test1")
 
         self.assertEqual(wls.get_word_translations_list(), ["one", "two"])
 
@@ -164,7 +164,7 @@ class TestServise(unittest.TestCase):
     def test_get_wordlist_language(self):
 
         self.setUpWordLists()
-        wls.open_active_wordlist("Test2", "Espanja")
+        wls.open_active_wordlist("Test2")
 
         self.assertEqual(wls.get_wordlist_language(), "Espanja")
 
@@ -177,7 +177,7 @@ class TestServise(unittest.TestCase):
         wls.add_user(self.user_joppe.username,
                                      self.user_joppe.password, 0)
         self.setUpWordLists()
-        wls.open_active_wordlist("Test2", "Espanja")
+        wls.open_active_wordlist("Test2")
 
 
         tulokset = [8, 6, 8, 9]

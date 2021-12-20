@@ -1,4 +1,4 @@
-from tkinter import Text, ttk, constants, messagebox
+from tkinter import ttk, constants, messagebox
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg)
 import numpy as np

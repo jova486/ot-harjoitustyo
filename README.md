@@ -4,7 +4,7 @@
 # Sanalista
 
 Sovelluksen avulla voi harjoitella toisen kielen sanastoa.
-Sovelluksessa luodaan sanalistoja käännöksineen joita voi harjoitella kääntämään halutulle kielelle.
+Sovelluksella voi luoda erikielisiä sanalistoja käännöksineen. Sanalistojen muistamista ja oikeinkirjoitusta voi harjoitella.
 
 ## Python-versio
 
@@ -15,6 +15,15 @@ Sovelluksen toiminta on testattu Python-versioilla 3.8.12 ja 3.8.8
 ## Dokumentaatio
 
 - [Käyttöohje](./dokumentaatio/Kayttoohje.md)
+
+- [Vaatimusmäärittely](./dokumentaatio/vaatimusmaarittely.md)
+
+- [Arkkitehtuurikuvaus](./dokumentaatio/arkkitehtuuri.md)
+
+- [Testausdokumentti](./dokumentaatio/testaus.md)
+
+- [Tuntikirjanpito](./dokumentaatio/tuntikirjanpito.md)
+
 
 
 ### Asennus
@@ -45,31 +54,22 @@ Testit voi suorittaa komennoilla:
 poetry run invoke test
 ```
 
+Testikattavuusraportin voi generoida komennolla:
+
 ```bash
 poetry run invoke coverage-report
 ```
+
+Pylint tarkistukset voi suorittaa komennolla:
 
 ```bash
 poetry run invoke lint
 ```
 
 
-## Tuntikirjanpito
-
-- [Tuntikirjanpito](./dokumentaatio/tuntikirjanpito.md)
-
-## Vaatimusmäärittely
-
-- [Vaatimusmäärittely](./dokumentaatio/vaatimusmaarittely.md)
-
-## Arkkitehtuurikuvaus
-
-- [Arkkitehtuurikuvaus](./dokumentaatio/arkkitehtuuri.md)
-
-
 ## Release
 
-- [Release](https://github.com/jova486/ot-harjoitustyo/releases/tag/Viikko6)
+- [Release](https://github.com/jova486/ot-harjoitustyo/releases/tag/Final)
 
 
 

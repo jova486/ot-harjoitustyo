@@ -29,7 +29,7 @@ Sovelluksen tietojen tallennuksesta vastaa luokka DbServise. Käyttöliittymän 
 
 # Päätoiminnallisuudet
 
-Kuvataan seuraavaksi sovelluksen toimintalogiikkaa sekvenssikaavioiden avulla.
+Kuvaus sovelluksen päätoiminnallisuudsta sekvenssikaavioina.
 
 # Käyttäjän lisääminen
 
@@ -41,7 +41,19 @@ Kirjautuminen näkymässä annetaan käyttäjätunnus ja salasana. WordListServi
 
 !["sekvenssikaavio Login"](kuvat/Login(Teacher).png)
 
+
+KirjautuOpettajan päänäkymäsää annetaan luodaan uusi sanalista (tai muokataan olemassa olevaa). Kun sanalista tallennetaan kutsutaan WordListServise luokan metodia check_word_list_name joka tarkistaa onko nimi jo käytössä. Mikäli nimi on sopiva tallennetaan sanalista ja onnistuneesta tallennuksesta palautetaan True.
+
 !["sekvenssikaavio TeacherMainView"](kuvat/TeacherMainView.png)
+
+Kun oppilas valitsee sanalistan valikosta kutsutaan WordListServise luokan metodia open_active_wordlist joka hakee sanalistan tietokannasta ja asettaa luokan WordListServise muuttujat. Seuraavaksi kutsutaan Ui luokan metodia to exersice _view joka vaitaa näkymän Harjoitusnäkymäksi.
+
+!["sekvenssikaavio Open_wordlist"](kuvat/open_wordlist.png)
+
+
+# Heikkoudet ohjelman rakenteessa
+
+Koska jokaisella näkymällä on oma luokkansa on käyttökiittymäluokissa melko paljon toisteisuutta. Ongelma on tiedostettu ja jatkossa käyttöliittymäsuunittelussa on syytä rakentaa alusta asti mahdollisuus yhdistää toimintoja samaan luokkaan tai muullatavoin pyrkiä vähentämään copypastea.
 
 
 

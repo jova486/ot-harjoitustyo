@@ -23,7 +23,7 @@ class StudentMainView:
     def _open(self):
         """handle list"""
         self._sevice.open_active_wordlist(
-            self._selected_list_student.get(), self._selected_language_student.get())
+            self._selected_list_student.get())
         self._to_exercise_view()
 
     def _update_selected_list(self, language):

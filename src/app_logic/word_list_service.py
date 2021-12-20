@@ -30,7 +30,8 @@ class WordListService:
         self.active_wordlist_language = ""
 
     def check_user(self, username, password):
-        """Kysyy tietokantaluokalta täsmääkö käyttäjänimi ja salasana. Mikäli täsmää asetetaan nykyisen käyttäjän tiedot
+        """Kysyy tietokantaluokalta täsmääkö käyttäjänimi ja salasana.
+         Mikäli täsmää asetetaan nykyisen käyttäjän tiedot
 
         Args:
             username: Käyttäjänimi
@@ -46,7 +47,8 @@ class WordListService:
         return False
 
     def add_user(self, username, password, is_teacher):
-        """Luo uuden käyttäjän. Mikäli uuden käyttäjän luominen onnistuu asetetaan nykyisen käyttäjän tiedot
+        """Luo uuden käyttäjän. Mikäli uuden käyttäjän
+           luominen onnistuu asetetaan nykyisen käyttäjän tiedot
 
         Args:
             username: Käyttäjänimi
@@ -82,11 +84,11 @@ class WordListService:
 
         Returns: lista käännöksistä
         """
-        list = []
+        wlist = []
         for i in self.active_wordlist:
-            list.append(i[1])
+            wlist.append(i[1])
 
-        return list
+        return wlist
 
     def get_wordlist_name(self):
         """Palautetaan aktiivisen sanalistan nimi.
@@ -133,7 +135,7 @@ class WordListService:
         self.active_wordlist_name = " "
         self.active_wordlist_language = " "
 
-    def open_active_wordlist(self, name, language):
+    def open_active_wordlist(self, name):
         """Avaa aktiivisen sanalistan ja asettaa arvot atribuutteihin
 
         Args:
@@ -142,10 +144,10 @@ class WordListService:
 
         """
         self.reset_active_wordlist()
-        self.active_wordlist = dbs.get_word_list(name, language)
+        self.active_wordlist = dbs.get_word_list(name)
         self.edit = True
         self.active_wordlist_name = name
-        self.active_wordlist_language = language
+        self.active_wordlist_language = dbs.get_word_list_language(name)
 
     def save_to_wordlist(self, word, translation, index):
         """Lisää sanan aktiiviseen sanalistaan

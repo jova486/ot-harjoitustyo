@@ -131,7 +131,7 @@ class TestDbServise(unittest.TestCase):
         wlist2 = [("neljä", "four"), ("viisi", "five"), ("kuusi", "six")]
         dbs.add_word_list(name, "English", self.user_joppe.username, wlist)
         dbs.edit_word_list(name, "English", wlist2)
-        self.assertEqual(dbs.get_word_list(name, "English"), wlist2)
+        self.assertEqual(dbs.get_word_list(name), wlist2)
 
     def test_edit_word_list_empty(self):
         """Testaa paluttaako tyhlä lista False

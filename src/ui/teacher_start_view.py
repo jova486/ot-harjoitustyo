@@ -29,7 +29,7 @@ class TeacherStartView:
             self.word_list_cb.current(0)
 
     def _language_cb_modified(self, event):
-        self._update_selected_list(self, self._selected_language.get())
+        self._update_selected_list(self._selected_language.get())
 
     def _new(self):
         self._sevice.reset_active_wordlist()
@@ -37,8 +37,7 @@ class TeacherStartView:
 
     def _open(self):
         """handle list"""
-        self._sevice.open_active_wordlist(
-            self._selected_list.get(), self._selected_language.get())
+        self._sevice.open_active_wordlist(self._selected_list.get())
         self.handle_show_teacher_main_view()
 
     def _close(self):

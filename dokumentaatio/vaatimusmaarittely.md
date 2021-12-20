@@ -11,83 +11,77 @@ Harjoitus tehdään kirjottamalla suomesta käännetty sana halutulla kielellä
 Käyttäjärooleja on kaksi. Opettaja ja oppilas joilla on eri oikeuksia.
 
 - Opettaja voi luoda harjoituksia jotka koostuvat sanalistoista ja niiden käännöksistä.
-- oppilas voi valita tehtävän harjoituksen listalta
+- oppilas voi valita tehtävän harjoituksen listalta jossa harjoitukset voi jaotella kielien perusteella
 
 
 
 ## Käyttöliittymäluonnos
 
-Sovellus koostuu kahdeksasta kymmeneen eri näkymästä
+Sovellus koostuu kuudesta eri näkymästä
 
 !["Käyttöliittymäluonnos"](kuvat/luonnos.jpg)
 
-### 1 kirjautumis näkymä Tehty
+### 1 kirjautumis näkymä
 
-- Sovellus aukeaa kirjautumisnäkymään jossa kysytään käyttäjätunnusta. Mikäli tunnusta ei ole sen voi luoda.
+- Sovellus aukeaa kirjautumisnäkymään jossa kysytään käyttäjätunnusta.
 - Mikäli tunnus tai salasana ei ole oikein annetaan siitä ilmoitus
 - mikäli tunnusta ei ole, sen voi luoda käyttäjätunnuksen-luonti näkymässä
 
 
 
-### 2 käyttäjätunnuksen-luonti näkymä Tehty
+### 2 käyttäjätunnuksen-luonti näkymä
 
 - Annetaan näyttäjänimi ja salasana
 - voidaan valita rooliksi opettaja tai oppilas
 - käyttäjä tunnuksen on oltava uniikki
 - käyttäjätunnus ja salasana tallennetaan tietokantaan
 
-### 3 Opettajan aloitusnäkymä (tehty)
+### 3 Opettajan aloitusnäkymä
 
 - Opettajan aloitusnäkymässä voi valita joko uuden sanalista tai olemassa olevan sanalistan muokkauksen
+- Muokattavissa olevat sanalistat voidaan jaotella kielen mukaan
 
 
-### 4 Opettajan päänäkymä (tehty)
+### 4 Opettajan päänäkymä
 
-- Opettajan päänäkymässä voi valita joko uuden harjoituksen tai lopetuksen
-- Harjoitukselle annetaan nimi (pakollinen)
-- Harjoitukselle annetaan kuvaus
-- Määritellään harjoituksen kieli (pakollinen)
-- Lopetus
-- Harjoitukset tallennetaan tietokantaan
-
-
-
-### 5 Uuden harjoituksen luonti näkymä (Tehty)
-
+- annetaan harjoitukselle nimi ja kieli
 - annetaan uusi sana ja sille käännös
+- sanat ja käännökset tallennetaan Tallenna sana painikkeella
+- sekä sana että sen käännös on kirjoitettava jotta sana voidaan tallentaa
 - nuolinäppäimillä voidaan siirtyä eteen ja taaksepäin
-- harjoitus voidaan tallentaa
+- Sanaoja tai käännöksiä voi myös muuttaa
 - muutokset voidaan perua ja palata pää näkymään
-- mikäli listalla ei ole nimeä tai nimi on jo käytössä siitä informoidaan
+- Tallenna sanalista painike tallentaa sanalistan
+- sanalista ei voi olla tyhjä ja sillä on oltava sekä nimi että kieli
 
-### 6 Muokattavan harjoituksen valinta näkymä (tehty)
 
-- voidaan valita harjoitus nimen ja kielen perusteella vain itse luoduista harjoituksista
-- voidaan perua ja siirtyä takaisin päänäkymään
-- voidaan siirtyä uuden harjoituksen luonti näkymään muokkaamaan olemassa olevaa harjoitusta
-
-### 7 Oppilaan päänäkymä (Tehty)
+### 5 Oppilaan päänäkymä
 
 - Oppilaan päänäkymässä voi valita tehtävän harjoituksin nimen ja kielen perusteella (Tämä ei ole vielä toteutettu ja voi olla turha valinta)
 - siirrytään harjoitus näkymään
 - ellei sanalistoja ole siitä informoidaan
 
 
-### 8 Harjoitus näkymä (Tehty)
+### 6 Harjoitus näkymä
 
 - Kysytty sana käännetään ja kirjoitetaan
-- tarkistus
-- palaute sen mukaan onko oikein vai
-- lopetus.
-- lisätty graafi josta näkyy kyseisen harjoituksen ensimmäisellä yrityksellä onnistumisprosentti
+- Tarkistus
+- Palaute sen mukaan onko oikein vai
+- Mikäli tehdään virhe näytetään vihjeenä kirjaimia kunnes sana on oikein tai kaikki kirjaimet on näytetty
+- Kun kaikki sanat on käyty läpi näytetään kyseisen harjoituksen tilasto pylväsgrafiikkana jossa prosentteina oikeiden vastausten osuus.
+
+### Ulkoiset kirjastot
+
+- Sovelluksessa on käytetty numpy ja matplotlib kirjastoja.
+
 
 
 ## Jatkokehitysideoita
 
-Mikäli aika sallii lisätään toiminnallisuutta:
-- olemassaolevan harjoituksen muokkaus
-- pidetään kirjaa tuloksista
-- statistiikka näkymä sekä opettajalle että oppilaalle
+- Sovellukseen voisi lisätä toiminnon joka laatisi opeteltavia sanalistoja automaattisesti annetun tekstin sanastosta tai niin että tietty teksti käytäisiin läpi manuaalisesti ja siitä tallennettaisiin halutut sanat.
+- Voisi myös tehdä toiminnon jolla käyttäjä voi halutessaan lisätä itselleen listan sanoista jotka ovat tuottaneet virheitä.
+- Listoille voisi luoda automaattiset käännökset eri kielille.
+-Käyttöliittymää olisi syytä sujuvoittaa. Tämänhetkinen viestiruuduille perustuva toiminnallisuus on kömpelö oikeaan harjoitteluun. Viestit voisi printata esim. ikkunan yläreunaan tai erilliseen viestipalkkiin.
 
 
 
