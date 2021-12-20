@@ -37,19 +37,22 @@ class TeacherMainView:
     def _save(self):
         word = self._word_entry.get()
         translation = self._translate_entry.get()
-        if len(word) > 0:
+        if (len(word) > 0) and (len(translation) > 0):
             self._sevice.save_to_wordlist(
                 word, translation, self._word_list_index)
 
             self._word_entry.delete(0, len(word))
             self._translate_entry.delete(0, len(translation))
             self._word_list_index += 1
+        else:
+            messagebox.showerror(
+                title="Huom!", message="Sana tai käännös puuttuu")
 
     def _save_list(self):
         name = self._listname_entry_entry.get()
         language = self._language_entry_entry.get()
 
-        if len(name) > 0:
+        if (len(name) > 0) and (len(language) > 0):
             if self._sevice.check_word_list_name(name):
                 messagebox.showerror(
                     title="Virhe", message="sanalistan nimi on jo käytössä")
@@ -60,10 +63,12 @@ class TeacherMainView:
                     self.clear()
 
                 else:
-                    messagebox.showerror("Virhe", "Sanalistaa")
+                    messagebox.showerror(
+                        "Lisää sanoja", "Sanalista ei voi olla tyhä")
 
         else:
-            messagebox.showerror("Virhe", "Anna sanalistalle nimi")
+            messagebox.showerror(
+                "Virhe", "Anna sanalistalle sekä nimi että kieli")
 
     def _back(self):
         if self._word_list_index == 0:
@@ -100,11 +105,11 @@ class TeacherMainView:
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
         listname_label = ttk.Label(
-            master=self._frame, text="Uuden sanalistan nimi")
+            master=self._frame, text="Sanalistan nimi")
         self._listname_entry_entry = ttk.Entry(master=self._frame)
 
         language_label = ttk.Label(
-            master=self._frame, text="Uuden sanalistan kieli")
+            master=self._frame, text="Sanalistan kieli")
         self._language_entry_entry = ttk.Entry(master=self._frame)
 
         word_label = ttk.Label(master=self._frame, text="Sana")
@@ -120,10 +125,10 @@ class TeacherMainView:
             master=self._frame, text="=>", command=self._forward)
 
         save_word = ttk.Button(
-            master=self._frame, text="Tallenna", command=self._save)
+            master=self._frame, text="Tallenna sana ja käännös", command=self._save)
 
         save_list = ttk.Button(
-            master=self._frame, text="Tallenna lista", command=self._save_list
+            master=self._frame, text="Tallenna sanalista", command=self._save_list
         )
 
         back = ttk.Button(master=self._frame, text="Alkuun",

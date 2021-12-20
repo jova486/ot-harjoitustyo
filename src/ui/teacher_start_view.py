@@ -1,4 +1,4 @@
-from tkinter import ttk, constants, StringVar, messagebox
+from tkinter import ttk, constants, StringVar
 
 
 class TeacherStartView:
@@ -10,13 +10,26 @@ class TeacherStartView:
         self.word_list_cb = None
         self.language_cb = None
 
-        self._initialize()
+        self._initialize_teacher_start_view()
 
     def pack(self):
         self._frame.pack(fill=constants.X)
 
     def destroy(self):
         self._frame.destroy()
+
+    def _update_selected_list(self, language):
+        if language == "Kaikki kielet":
+            self.word_list_cb["values"] = self._sevice.get_wordlists_names()
+            self.word_list_cb.current(0)
+
+        else:
+            self.word_list_cb["values"] = self._sevice.get_wordlists_by_language(
+                language)
+            self.word_list_cb.current(0)
+
+    def _language_cb_modified(self, event):
+        self._update_selected_list(self, self._selected_language.get())
 
     def _new(self):
         self._sevice.reset_active_wordlist()
@@ -31,7 +44,7 @@ class TeacherStartView:
     def _close(self):
         self._root.destroy()
 
-    def _initialize(self):
+    def _initialize_teacher_start_view(self):
         self._frame = ttk.Frame(master=self._root)
         new = ttk.Button(master=self._frame,
                          text="Uusi lista", command=self._new)
@@ -41,6 +54,7 @@ class TeacherStartView:
         names = []
         languages = []
         if len(lists) > 0:
+            languages.append("Kaikki kielet")
             for row in lists:
                 names.append(row[0])
                 languages.append(row[1])
@@ -54,7 +68,7 @@ class TeacherStartView:
                 constants.E, constants.W), padx=5, pady=5)
         else:
             names.append("Ei vielä tehtäviä")
-            languages.append("-----")
+            languages.append("-")
             close = ttk.Button(master=self._frame,
                                text="Lopeta", command=self._close)
             close.grid(row=3, column=0, sticky=(
@@ -74,6 +88,8 @@ class TeacherStartView:
         )
         self.language_cb["values"] = languages
         self.language_cb.current(0)
+        self.language_cb.bind('<<ComboboxSelected>>',
+                              self._language_cb_modified)
 
         self.word_list_cb.grid(
             row=1, column=0, sticky=(constants.E, constants.W), padx=5, pady=5

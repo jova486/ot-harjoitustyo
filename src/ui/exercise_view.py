@@ -1,6 +1,7 @@
 from tkinter import Text, ttk, constants, messagebox
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg)
+import numpy as np
 
 
 class ExerciseView:
@@ -8,7 +9,6 @@ class ExerciseView:
         self._root = root
         self._to_main_view = _to_main_view
         self._sevice = sevice
-        self._frame = None
         self._frame = None
         self._word_label = None
         self._translate_entry = None
@@ -34,35 +34,65 @@ class ExerciseView:
         keys = stat.keys()
         values = stat.values()
         plot1 = self.fig.add_subplot(111)
-        width = .5
+        plot1.set_xlabel('Aika')
+        plot1.set_title('Oikeat vastaukset %')
+        width = .2
         plot1.bar(keys, values, width)
-        self.canvas.draw()
-        self.canvas.get_tk_widget().pack()
+        self.canvas.get_tk_widget().pack(fill=constants.X)
+
+    def _end(self):
+        wright = sum(value == 1 for value in self.wordlist_stat.values())
+        self._sevice.save_statistics(wright/len(self.wordlist_stat))
+        self._word_list_index += 1
+
+        messagebox.showinfo(title="Selvisit loppuun!",
+                            message="Hienoa! "+"Kaikki oikein!")
+        self.plot()
+
+    def _next(self, next):
+        if next == 0:
+            self._word_list_index += 1
+        word = self._translate_entry.get()
+        self._word_label.config(text=self.wordlist[self._word_list_index][0])
+        self._translate_entry.delete(0, len(word))
+        self._translate_entry.insert(0, "")
 
     def _check(self):
+        if len(self.wordlist) <= self._word_list_index:
+            return
         word = self._translate_entry.get()
         if word == self.wordlist[self._word_list_index][1]:
             self.wordlist_stat[word] += 1
             messagebox.showinfo(
                 title="Oikein!", message=self.wordlist[self._word_list_index][0] + " = " + word)
-            if self._word_list_index >= len(self.wordlist) - 1:
-                wright = sum(
-                    value == 1 for value in self.wordlist_stat.values())
-                self._sevice.save_statistics(wright/len(self.wordlist_stat))
-
-                messagebox.showinfo(title="Selvisit loppuun!",
-                                    message="Hienoa! "+"Kaikki oikein!")
-                self.plot()
+            if self._word_list_index == len(self.wordlist) - 1:
+                self._end()
 
             else:
-                self._word_list_index += 1
-                self._word_label.config(
-                    text=self.wordlist[self._word_list_index][0])
-                self._translate_entry.delete(0, len(word))
-                self._translate_entry.insert(0, "")
+                self._next(0)
+
         else:
             self.wordlist_stat[self.wordlist[self._word_list_index][1]] += 1
-            messagebox.showerror(title="Väärin!", message="yritä uudelleen")
+            num_hints = self.wordlist_stat[self.wordlist[self._word_list_index][1]]
+            if num_hints == len(self.wordlist[self._word_list_index][1]):
+                messagebox.showinfo(
+                    title="Sana on", message=self.wordlist[self._word_list_index][0] + " = " + self.wordlist[self._word_list_index][1])
+                if self._word_list_index == len(self.wordlist) - 1:
+                    self._end()
+                else:
+                    self._next(0)
+
+            else:
+                randnums = np.random.choice(
+                    len(self.wordlist[self._word_list_index][1]), num_hints, replace=False)
+                hint = []
+                for i, character in enumerate(self.wordlist[self._word_list_index][1]):
+                    if i in randnums:
+                        hint += character
+                    else:
+                        hint += "_"
+                messagebox.showinfo(title="Vihje!", message=hint)
+                self._next(1)
 
     def _initialize(self):
         self._word_list_index = 0

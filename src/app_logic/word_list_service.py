@@ -125,12 +125,22 @@ class WordListService:
         return self.active_wordlist_language
 
     def reset_active_wordlist(self):
+        """Palauttaa alkuasetukset.
+
+        """
         self.active_wordlist = []
         self.edit = False
         self.active_wordlist_name = " "
         self.active_wordlist_language = " "
 
     def open_active_wordlist(self, name, language):
+        """Avaa aktiivisen sanalistan ja asettaa arvot atribuutteihin
+
+        Args:
+            name: Sanalistan nimi
+            language: Sanalistan kieli
+
+        """
         self.reset_active_wordlist()
         self.active_wordlist = dbs.get_word_list(name, language)
         self.edit = True
@@ -138,6 +148,14 @@ class WordListService:
         self.active_wordlist_language = language
 
     def save_to_wordlist(self, word, translation, index):
+        """Lisää sanan aktiiviseen sanalistaan
+
+        Args:
+            word: Lisättävä sana
+            translation: Sanan käännös
+            index: indeksi sanalistassa
+
+        """
 
         if index >= len(self.active_wordlist):
             self.active_wordlist.append((word, translation))
@@ -152,7 +170,7 @@ class WordListService:
         creator = self.user.username
         if self.edit == True:
             if self.dbs.check_word_list_name(name):
-                return self.dbs.edit_word_list(name, language, creator, self.active_wordlist)
+                return self.dbs.edit_word_list(name, language, self.active_wordlist)
 
             return self.dbs.add_word_list(name, language, creator, self.active_wordlist)
 

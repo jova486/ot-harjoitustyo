@@ -6,6 +6,7 @@ class DbServise:
     """Tietokannatahauista vastaava luokka.
 
     """
+
     def __init__(self):
         """Luokan konstruktori.
 
@@ -16,7 +17,8 @@ class DbServise:
         self._conn = get_database_connection()
 
     def add_user(self, username, password, teacher):
-        """Tarkistaa onko käyttäjänimi käytössä ja lisää käyttäjän tietokantaan mikäli käyttäjänimi on vapaa.
+        """Tarkistaa onko käyttäjänimi käytössä ja lisää käyttäjän
+           tietokantaan mikäli käyttäjänimi on vapaa.
 
         Args:
             username: Käyttäjänimi
@@ -97,7 +99,7 @@ class DbServise:
         """
 
         cursor = self._conn.execute(
-            'SELECT * from lists where NAME="%s" %(name)')
+            'SELECT * from lists where NAME="%s"' % (name))
         if cursor.fetchone():
 
             return False
@@ -111,7 +113,7 @@ class DbServise:
             return True
         return False
 
-    def edit_word_list(self, name, language, creator, list):
+    def edit_word_list(self, name, language, wlist):
         """Päivittää olemassa olevan sanalistan.
 
         Args:
@@ -124,7 +126,7 @@ class DbServise:
         """
         cursor = self._conn.cursor()
         data = ""
-        for i in list:
+        for i in wlist:
             data += i[0]+","+i[1]+"\n"
         if len(data) > 0:
 
@@ -152,11 +154,11 @@ class DbServise:
         wlist = []
 
         for row in rows:
-            a = (row[0].split("\n"))
-            for i in a:
+            line = (row[0].split("\n"))
+            for i in line:
                 if len(i) > 0:
-                    b = i.split(",")
-                    wlist.append((b[0], b[1]))
+                    words = i.split(",")
+                    wlist.append((words[0], words[1]))
 
         return wlist
 
@@ -205,9 +207,9 @@ class DbServise:
     def check_word_list_name(self, name):
         """Tarkistaa onko sanalistan nimi tietokannassa.
         Args:
-            language: Haettavan sanalistan kieli
+            language: Haettavan sanalistan nimi
 
-        Returns: Sanalistojen nimet tai tyhjä lista
+        Returns: True jos nimi löytyy muuten false
         """
 
         cursor = self._conn.execute(
@@ -228,7 +230,8 @@ class DbServise:
 
         cursor = self._conn.cursor()
         query = "INSERT INTO stat(user, name ,date, value) VALUES (?, ?, ?, ?)"
-        cursor.execute(query, (user, name, datetime.now(), value))
+        cursor.execute(
+            query, (user, name, datetime.now(), value))  # .strftime("%d.%m.%y-%H:%M:%S")
         self._conn.commit()
 
     def get_statistics(self, user, name):
@@ -246,11 +249,20 @@ class DbServise:
         rows = cursor.fetchall()
         dates = []
         values = []
-        for row in rows:
-            dates.append(row[0])
+        for i, row in enumerate(rows):
+            date_time_obj = datetime.strptime(row[0], '%Y-%m-%d %H:%M:%S.%f')
+            dates.append(str(i+1)+" "+str(date_time_obj.date()))
             values.append(row[1]*100)
         zip_iter = zip(dates, values)
         return dict(zip_iter)
+
+    def delete_all_stat(self):
+        """
+            tyhjentää tilaston
+        """
+
+        self._conn.execute("delete from stat")
+        self._conn.commit()
 
 
 db_servise = DbServise()

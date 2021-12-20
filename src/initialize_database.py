@@ -50,6 +50,24 @@ def create_tables(connection):
         );
     ''')
 
+    wlist_sp = [("yksi", "uno"), ("kaksi", "dos"),
+                ("kolme", "tres"), ("neljä", "cuatro")]
+    wlist_en = [("yksi", "one"), ("kaksi", "two"),
+                ("kolme", "tree"), ("neljä", "four")]
+    data = ""
+    for i in wlist_sp:
+        data += i[0]+","+i[1]+"\n"
+
+    query = "INSERT INTO lists(name, language,creator,data) VALUES (?, ?, ?, ?)"
+    cursor.execute(query, ("Numerot-Espanja", "Espanja", "Admin", data))
+
+    data = ""
+    for i in wlist_en:
+        data += i[0]+","+i[1]+"\n"
+
+    query = "INSERT INTO lists(name, language,creator,data) VALUES (?, ?, ?, ?)"
+    cursor.execute(query, ("Numerot-Englanti", "Englanti", "Admin", data))
+
     connection.commit()
 
 

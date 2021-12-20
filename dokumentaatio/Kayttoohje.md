@@ -25,42 +25,49 @@ poetry run invoke start
 - Mikäli tunnus tai salasana ei ole sovellus ilmoittaa siitä.
 - Mikäli tunnusta ei ole, sen voi luoda käyttäjätunnuksen-luonti näkymässä klikkaamalla Luo Tunnus.
 
-
+!["Kirjautumis näkymä"](kuvat/login.png)
 
 ### Käyttäjätunnuksen-luonti näkymä
 
 - Annetaan käyttäjänimi ja salasana.
 - Käyttäjä tunnuksen on oltava uniikki.
 - Valitaan halutessa rooliksi opettaja joka antaa mahdollisuuden luoda ja muokata sanalistoja.
-- käyttäjätunnus, salasana ja rooli tallennetaan tietokantaan
 
+!["Käyttäjätunnuksen-luonti"](kuvat/newuser.png)
 
 ### Opettajan aloitusnäkymä
 
 - Uusi sanalista painikkeella pääsee päänäkymään tekemään uuden sanalistan
 - Mahdollisuus valita olemassaolevista listoista muokattavaksi päänäkymään
 - Lopetus
-
+!["Opettajan aloitusnäkymä"](kuvat/opettaja1.png)
 ### Opettajan päänäkymä
 
 - Uudelle sanalistalle annetaan nimi
+- Listalla pitää olla uniikki nimi ja se ei saa olla tyhjä
 - Uudelle sanalistalle annetaan käännösten kieli
 - kirjoitetaan sana kenttään Sana ja sen käännös kenttään Käännös.
+["Opettajan päänäkymä"](kuvat/opettaja2.png)
 - Nuolinäppäimillä voi liikkua sanalistassa ja tehdä muutoksia
 - Tallenna lisää näkyvissä olevan sanan sanalistaan
 - Peru painikkeella pääsee takaisin kirjautumisnäkymään.
 - Tallenna lista painikkeella tallennetaan lista tietokantaan
-- Listalla pitää olla uniikki nimi ja se ei saa olla tyhjä
+
+["painikkeet"](kuvat/painikkeet.png)
 
 ### Oppilaan päänäkymä
 
 - Valitaan harjoitus.
 - Vaidaan valita kieli jonka sanalistat halutaan näyttää.
 - Lopetus
+["Oppilaan päänäkymä"](kuvat/oppilas1.png)
 
 ### Harjoitusnäkymä
 
 - Harjoituksessa kirjoitetaan sanan käännös ja tarkistetaan
-- Kun kaikki sanat on käännetty oikein palataan oppilaan päänäkymään
-- Tämän jälkeen näytetään edistymistä kuvaava kaavio jossa tehdyn harjoituksen tilastoidut suoritukset
-näytetään päivämäärien mukaan. Palkki kuvaa prosentteja ensimmäisellä yrityksellä onnistuneista suhteessa kaikkiin.
+["Harjoitusnäkymä"](kuvat/oppilas2.png)
+["Oikein"](kuvat/oikein.png)
+-mikäli sana on kirjoitettu väärin annetaan vihjeenä kirjaimia kunnes joko sana on oikein tai kaikki kirjaimet on annettu.
+["vihje"](kuvat/vihje.png)
+- Kun kaikki sanat on käännetty oikein näytetään edistymistä kuvaava kaavio jossa tehdyn harjoituksen tilastoidut suoritukset näytetään päivämäärien mukaan. Palkki kuvaa prosentteja ensimmäisellä yrityksellä onnistuneista suhteessa kaikkiin.
+- Tämän jälkeen voi palata päänäkymään ja tehdä harjoituksen uudelleen tai valita toisen.

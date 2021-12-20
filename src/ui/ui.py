@@ -5,7 +5,7 @@ from ui.teacher_main_view import TeacherMainView
 from ui.student_main_view import StudentMainView
 from ui.exercise_view import ExerciseView
 
-from app_logic.wordList_service import (
+from app_logic.word_list_service import (
     word_list_Service as service
 )
 

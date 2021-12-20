@@ -32,16 +32,19 @@ class NewUserView:
         username = self._username_entry.get()
         password = self._password_entry.get()
         is_teacher = self._is_teacher_val.get()
-        if self._sevice.add_user(username, password, is_teacher):
-            if is_teacher == 1:
-                self.handle_show_teacher_main_view()
+        if (len(username) > 0) and (len(password) > 0):
+            if self._sevice.add_user(username, password, is_teacher):
+                if is_teacher == 1:
+                    self.handle_show_teacher_main_view()
+                else:
+                    self.handle_show_student_main_view()
             else:
-                self.handle_show_student_main_view()
+                messagebox.showerror("Tunnus on jo käytössä.", "Error")
         else:
-            messagebox.showerror("Tunnus on jo käytössä.", "Error")
+            messagebox.showerror(
+                "Huom!", "Anna sekä käyttäjätunnus että salasana")
 
     def _initialize(self):
-        self._frame = ttk.Frame(master=self._root)
         self._frame = ttk.Frame(master=self._root)
 
         username_label = ttk.Label(master=self._frame, text="Tunnus")
