@@ -140,7 +140,6 @@ class WordListService:
 
         Args:
             name: Sanalistan nimi
-            language: Sanalistan kieli
 
         """
         self.reset_active_wordlist()
@@ -166,6 +165,14 @@ class WordListService:
             self.active_wordlist[index] = (word, translation)
 
     def save_wordlist(self, name, language):
+        """Tallentaa aktiivisen sanalistan
+
+        Args:
+            name: sanalistan nimi
+            language: sanalistan kieli
+
+        Returns: True jos tallennus onnistuu muutoin False
+        """
         name = name.capitalize()
         language = language.capitalize()
 
@@ -179,16 +186,37 @@ class WordListService:
         return self.dbs.add_word_list(name, language, creator, self.active_wordlist)
 
     def check_word_list_name(self, name):
+        """Tarkistaa onko sanalistan nimi jo tietokannassa
+
+        Args:
+            name: sanalistan nimi
+
+        Returns: True jos nimi ei ole tietojannassa ja mode edit
+        ei ole valittu muutoin False
+        """
         if self.edit:
             return False
         return self.dbs.check_word_list_name(name)
 
     def save_statistics(self, value):
+        """Tallentaa tehtävän tuloksen tietokantaan
+
+        Args:
+            value: tulos
+
+        """
 
         self.dbs.save_statistics(
             self.user.username, self.get_wordlist_name(), value)
 
     def get_statistics(self):
+        """Hakee aktiivisen sanalistan ja tulokset käyttäjän nimen mukaan.
+
+        Args:
+            self
+
+        Returns: dictionary jossa päivämäärät ja tulokset
+        """
 
         return self.dbs.get_statistics(self.user.username, self.get_wordlist_name())
 

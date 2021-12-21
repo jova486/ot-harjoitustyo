@@ -2,10 +2,7 @@ from tkinter import ttk, constants, messagebox, IntVar
 
 
 class NewUserView:
-    """
-    Uuden käyttäjän luomisesta vastaava näkymä luokka
 
-    """
 
     def __init__(
         self, root, handle_show_teacher_main_view, handle_show_student_main_view, sevice

@@ -11,7 +11,7 @@ from app_logic.word_list_service import (
 
 
 class UI:
-    """Luokka joka vastaa käyttöliittymän logiikasta"""
+
 
     def __init__(self, root):
         self._root = root
