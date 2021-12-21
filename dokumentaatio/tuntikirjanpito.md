@@ -23,6 +23,7 @@
 | 19.12. | 4    | bugien korjausta, testien koodausta, dokumentointia|
 | 20.12. | 5    | bugien korjausta. dokumentointia (Käyttöohje, arkkitehtuuri, vaatimusmäärittely) Sekvenssikaavioita|
 | 20.12. | 3    | bugien korjausta. dokumentointia (testidokumentti, vaatimusmäärittely) |
-| yht. | 66    | |
+| 21.12. | 2    | Testausta ja dokumentointia (testidokumentti, vaatimusmäärittely) |
+| yht. | 68    | |
 
 

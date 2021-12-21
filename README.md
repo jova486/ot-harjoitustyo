@@ -4,7 +4,7 @@
 # Sanalista
 
 Sovelluksen avulla voi harjoitella toisen kielen sanastoa.
-Sovelluksella voi luoda erikielisiä sanalistoja käännöksineen. Sanalistojen muistamista ja oikeinkirjoitusta voi harjoitella.
+Sovelluksella voi luoda sanalistoja käännöksineen. Sanaston muistamista ja oikeinkirjoitusta voi harjoitella kirjottamalla sanojen käännöksiä halutulle kielelle.
 
 ## Python-versio
 

@@ -21,8 +21,8 @@ poetry run invoke start
 
 ### Kirjautumis näkymä
 
-- Sovellus aukeaa kirjautumisnäkymään jossa kysytään käyttäjätunnusta.
-- Mikäli tunnus tai salasana ei ole sovellus ilmoittaa siitä.
+- Sovellus aukeaa kirjautumisnäkymään jossa kysytään käyttäjätunnusta ja salasanaa.
+- Mikäli käyttäjätunnus tai salasana ei ole oikein sovellus ilmoittaa siitä.
 - Mikäli tunnusta ei ole, sen voi luoda käyttäjätunnuksen-luonti näkymässä klikkaamalla Luo Tunnus.
 
 !["Kirjautumis näkymä"](kuvat/login.png)
@@ -37,25 +37,26 @@ poetry run invoke start
 
 ### Opettajan aloitusnäkymä
 
-- Uusi sanalista painikkeella pääsee päänäkymään tekemään uuden sanalistan
-- Muokkaa painikkeella voi valita olemassaolevista listoista muokattavaksi päänäkymään
-- Lopeta painikkeella suljetaan sovellus
+- Uusi sanalista painikkeella pääsee päänäkymään tekemään uuden sanalistan.
+- Muokkaa painikkeella voi valita olemassaolevista listoista muokattavaksi päänäkymään.
+- Lopeta painikkeella suljetaan sovellus.
 
 !["Opettajan aloitusnäkymä"](kuvat/opettaja1.png)
 
 ### Opettajan päänäkymä
 
-- Uudelle sanalistalle annetaan nimi
-- Listalla pitää olla uniikki nimi ja se ei saa olla tyhjä
-- Uudelle sanalistalle annetaan käännösten kieli
+- Uudelle sanalistalle annetaan nimi.
+- Listalla pitää olla uniikki nimi ja se ei saa olla tyhjä.
+- Uudelle sanalistalle annetaan käännösten kieli.
 - kirjoitetaan sana kenttään Sana ja sen käännös kenttään Käännös.
 
 !["Opettajan päänäkymä"](kuvat/opettaja2.png)
 
-- Nuolinäppäimillä voi liikkua sanalistassa ja tehdä muutoksia
-- Tallenna lisää näkyvissä olevan sanan sanalistaan
+- Nuolinäppäimillä voi liikkua sanalistassa ja tehdä muutoksia näkyvissä olevaan sanaan tai käännökseen.
+- Tallenna sana ja käännös painike lisää näkyvissä olevan sanan sanalistaan.
+- Sekä sana että käännös täytyy olla että sana voidaan tallentaa.
 - Peru painikkeella pääsee takaisin kirjautumisnäkymään.
-- Tallenna lista painikkeella tallennetaan lista tietokantaan
+- Tallenna sanalista painikkeella tallennetaan lista tietokantaan.
 
 !["painikkeet"](kuvat/painikkeet.png)
 
@@ -63,21 +64,21 @@ poetry run invoke start
 
 - Valitaan harjoitus.
 - Vaidaan valita kieli jonka sanalistat halutaan näyttää.
-- Lopeta painikkeella suljetaan sovellus
+- Lopeta painikkeella suljetaan sovellus.
 
 !["Oppilaan päänäkymä"](kuvat/oppilas1.png)
 
 ### Harjoitusnäkymä
 
-- Harjoituksessa kirjoitetaan sanan käännös ja tarkistetaan Tarkista painikkeella
+- Harjoituksessa kirjoitetaan sanan käännös ja tarkistetaan Tarkista painikkeella.
 
 !["Harjoitusnäkymä"](kuvat/oppilas2.png)
 
-- sana oikein
+- Sana oikein.
 
 !["Oikein"](kuvat/oikein.png)
 
--mikäli sana on kirjoitettu väärin annetaan vihjeenä kirjaimia kunnes joko sana on oikein tai kaikki kirjaimet on annettu.
+- Mikäli sana on kirjoitettu väärin annetaan vihjeenä kirjaimia kunnes joko sana on oikein tai kaikki kirjaimet on annettu.
 
 !["vihje"](kuvat/vihje.png)
 

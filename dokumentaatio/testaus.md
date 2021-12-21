@@ -5,11 +5,11 @@ Ohjelmaa on testattu automatisoiduilla yksikkö- ja integraatiotesteillä unitte
 
 ### Sovelluslogiikka
 
-Sovelluslogiikasta vastaavaa `WordListService`-luokkaa testataan `TestServise` luokan metodeilla. `TestServise`-luokan metodissa setUp tyhjennetään testejä varten tuotu tietokanta test-wordlistdb siten että tietokantahaut ja testit tehdään tyhjälle tietokannalle. Sovelluslogiikka testit testaavat myös sovellusta integraatiotasolla.
+Sovelluslogiikasta vastaavaa `WordListService`-luokkaa testataan `TestServise` luokan metodeilla. `TestServise`-luokan metodissa setUp tyhjennetään testejä varten luotu tietokanta test-wordlistdb siten että tietokantahaut ja testit tehdään tyhjälle tietokannalle. Sovelluslogiikka testit testaavat myös sovellusta integraatiotasolla.
 
 ### Tietokanta-luokka
 
-Tietokantaluokkaa `DbServise` testataan luokan `TestDbServise` luokan metodeilla. `TestDbServise`-luokan metodissa setUp tyhjennetään testejä varten tuotu tietokanta test-wordlistdb siten että  tietokantahaut ja testit tehdään tyhjälle tietokannalle.
+Tietokantaluokkaa `DbServise` testataan luokan `TestDbServise` luokan metodeilla. `TestDbServise`-luokan metodissa setUp tyhjennetään testejä varten luotu tietokanta test-wordlistdb siten että  tietokantahaut ja testit tehdään tyhjälle tietokannalle.
 
 ### Testauskattavuus
 
@@ -28,6 +28,6 @@ Sovelluksen release-versio on asennettu ja sitä on testattu [Käyttöohjeen](Ka
 
 ### Toiminnallisuudet
 
-Sovelluksessa on pyritty välttämään kaikki tilanteet joissa virheellinen syöte voisi aiheuttaa ongelman. Tällä hetkellä ei ole tiedossa että näin voisi käydä mikäli sovellus on asennettu ohjeiden mukaan. Ongelma syntyy kuitenkin silloin kun sovellus käynnistetään ennen tietokannan alustamista.
+Sovelluksessa on pyritty välttämään kaikki tilanteet joissa virheellinen syöte voisi aiheuttaa ongelman. Tällä hetkellä ei ole tiedossa että näin voisi käydä mikäli sovellus on asennettu ohjeiden mukaan. Ongelma voi kuitenkin aiheutua mikäli sovellus käynnistetään ohjeiden vastaisesti ennen tietokannan alustamista.
 
 
