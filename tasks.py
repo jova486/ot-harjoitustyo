@@ -10,6 +10,10 @@ def start(ctx):
 def test(ctx):
     ctx.run("pytest src")
 
+@task
+def build(ctx):
+    ctx.run("python3 src/build.py")
+
 
 @task
 def initdb(ctx):

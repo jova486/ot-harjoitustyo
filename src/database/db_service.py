@@ -1,5 +1,5 @@
 from datetime import datetime
-from database.database_connection import get_database_connection
+from database_connection import get_database_connection
 
 
 class DbServise:
@@ -171,7 +171,6 @@ class DbServise:
 
         Returns: Paluttaa sanalistan kielen.
         """
-
 
         cursor = self._conn.execute(
             'SELECT language from lists where NAME="%s"' % (name))

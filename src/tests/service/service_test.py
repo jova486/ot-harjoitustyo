@@ -32,7 +32,6 @@ class TestServise(unittest.TestCase):
             self
         """
 
-
         wlist = [("yksi", "one"), ("kaksi", "two")]
         for i, entry in enumerate(wlist):
             wls.save_to_wordlist(entry[0], entry[1], i)
@@ -65,7 +64,7 @@ class TestServise(unittest.TestCase):
                                      self.user_joppe.password, self.user_joppe.teacher))
 
         self.assertFalse(wls.add_user(self.user_joppe.username,
-                                     self.user_joppe.password, self.user_joppe.teacher))
+                                      self.user_joppe.password, self.user_joppe.teacher))
 
     def test_check_user_not_exist(self):
         """Testaa palauttaako check_user False jos käyttäjää ei ole tietokannassa.
@@ -93,10 +92,7 @@ class TestServise(unittest.TestCase):
 
         self.assertEqual(wls.get_teacher(), 0)
 
-
-
     def test_get_wordlists_names(self):
-
         """Testaa paluttaako get_wordlists_names tallennettujen sanalistojen nimet.
 
         Args:
@@ -104,10 +100,9 @@ class TestServise(unittest.TestCase):
         """
         self.setUpWordLists()
 
-        self.assertEqual(wls.get_wordlists_names(), ["Test1","Test2"])
+        self.assertEqual(wls.get_wordlists_names(), ["Test1", "Test2"])
 
     def test_get_active_wordlists_name(self):
-
         """Testaa paluttaako get_wordlist_name oikean listan nimen.
 
         Args:
@@ -119,7 +114,6 @@ class TestServise(unittest.TestCase):
         self.assertEqual(wls.get_wordlist_name(), "Test2")
 
     def test_get_wordlist(self):
-
         """Testaa paluttaako get_wordlist oikein aktiivisen listan.
 
         Args:
@@ -128,9 +122,8 @@ class TestServise(unittest.TestCase):
         self.setUpWordLists()
 
         wls.open_active_wordlist("Test2")
-        self.assertEqual(wls.get_wordlist(), [("kolme", "tres"), ("neljä", "cuatro")])
-
-
+        self.assertEqual(wls.get_wordlist(), [
+                         ("kolme", "tres"), ("neljä", "cuatro")])
 
     def test_get_wordlist_info(self):
         """Testaa paluttaako get_wordlist_info oikein sanalistojen nimet ja kielet.
@@ -146,8 +139,6 @@ class TestServise(unittest.TestCase):
     def test_get_wordlist_info_for_empty(self):
         wlist = []
         self.assertEqual(wls.get_wordlist_info(), wlist)
-
-
 
     def test_get_word_translations_list(self):
 
@@ -175,10 +166,9 @@ class TestServise(unittest.TestCase):
             self
         """
         wls.add_user(self.user_joppe.username,
-                                     self.user_joppe.password, 0)
+                     self.user_joppe.password, 0)
         self.setUpWordLists()
         wls.open_active_wordlist("Test2")
-
 
         tulokset = [8, 6, 8, 9]
         for i in tulokset:
@@ -189,8 +179,3 @@ class TestServise(unittest.TestCase):
         for i in result.values():
             verify.append(i/10)
         self.assertEqual(verify, tulokset)
-
-
-
-
-

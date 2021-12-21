@@ -21,7 +21,8 @@
 | 16.12. | 2    | testikattavuuden parantaminen|
 | 17.12. | 3    | ominaisuuksien lisäämistä, pylint |
 | 19.12. | 4    | bugien korjausta, testien koodausta, dokumentointia|
-| 20.12. | 5    | bugien korjausta. dokumentointia (Käyttöohje, arkkitehtuuri vaatimusmäärittely) Sekvenssikaavioita|
-| yht. | 63    | |
+| 20.12. | 5    | bugien korjausta. dokumentointia (Käyttöohje, arkkitehtuuri, vaatimusmäärittely) Sekvenssikaavioita|
+| 20.12. | 3    | bugien korjausta. dokumentointia (testidokumentti, vaatimusmäärittely) |
+| yht. | 66    | |
 
 

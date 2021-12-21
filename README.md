@@ -37,7 +37,7 @@ poetry install
 2. Suorita tietokannan alustus komennolla:
 
 ```bash
-poetry run invoke initdb
+poetry run invoke build
 ```
 
 3. Sovellus käynnistyy komennolla:

@@ -19,7 +19,7 @@ Käyttäjärooleja on kaksi. Opettaja ja oppilas joilla on eri oikeuksia.
 
 Sovellus koostuu kuudesta eri näkymästä
 
-!["Käyttöliittymäluonnos"](kuvat/luonnos.jpg)
+!["Käyttöliittymäluonnos"](kuvat/luonnos.png)
 
 ### 1 kirjautumis näkymä
 
