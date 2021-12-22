@@ -20,7 +20,7 @@ Käyttöliittymäkerrosta lukuunottamatta sovelluksen testauksen haarautumakatta
 
 ### Järjestelmätestaus
 
-Sovelluksen järjestelmätestaus on suoritettu manuaalisesti.
+Sovellusta on testattu järjestelmätasolla manuaalisesti.
 
 ### Asennus ja konfigurointi
 
@@ -28,6 +28,9 @@ Sovelluksen release-versio on asennettu ja sitä on testattu [Käyttöohjeen](Ka
 
 ### Toiminnallisuudet
 
-Sovelluksessa on pyritty välttämään kaikki tilanteet joissa virheellinen syöte voisi aiheuttaa ongelman. Tällä hetkellä ei ole tiedossa että näin voisi käydä mikäli sovellus on asennettu ohjeiden mukaan. Ongelma voi kuitenkin aiheutua mikäli sovellus käynnistetään ohjeiden vastaisesti ennen tietokannan alustamista.
+Sovelluksessa on pyritty välttämään kaikki tilanteet joissa virheellinen syöte voisi aiheuttaa ongelman käymällä läpi kaikki määrittelydokumentissa esitetyt toiminnallisuudet.
 
+### Sovellukseen jääneet laatuongelmat
+
+- Tällä hetkellä ei ole tiedossa tilannetta jossa sovellus antaisi tallentaa tietoa muodossa joka aiheuttaisi myöhemmin ongelmia. Sovellus ei kuitenkaan tarkista ovatko syötteet mielekkäitä tai oikeita ohjelman mielekkään käytön kannalta.
 

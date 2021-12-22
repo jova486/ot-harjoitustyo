@@ -56,7 +56,8 @@ class TeacherStartView:
             languages.append("Kaikki kielet")
             for row in lists:
                 names.append(row[0])
-                languages.append(row[1])
+                if row[1] not in languages:
+                    languages.append(row[1])
             open = ttk.Button(master=self._frame,
                               text="Muokkaa", command=self._open)
             open.grid(row=3, column=0, sticky=(
