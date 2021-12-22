@@ -69,7 +69,7 @@ poetry run invoke lint
 
 ## Release
 
-- [Release](https://github.com/jova486/ot-harjoitustyo/releases/tag/v0.9.2)
+- [Release](https://github.com/jova486/ot-harjoitustyo/releases/tag/v0.9.3)
 
 
 
